@@ -20,7 +20,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "asang24", // Usually your GitHub org/user name.
-  projectName: "Blog-Docusaurus", // Usually your repo name.
+  projectName: "asang24-blog", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -86,7 +86,7 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "筆記",
+            label: "Notes",
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
@@ -103,7 +103,7 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "筆記",
+                label: "Notes",
                 to: "/docs/intro",
               },
             ],

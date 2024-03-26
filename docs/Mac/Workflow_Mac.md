@@ -122,7 +122,7 @@ Also can find in [my github](https://github.com/asang24/dotfiles)
       This setting is for tmux & nvim while some setting keybinds like`Ctrl+/` or `Ctrl+[` and so on
       :::
         <!-- <img src ="https://github.com/asang24/dotfiles/blob/main/iterm2/iterm4tmux.png" alt="demo" style="zoom:10%;" /> -->
-      ![demo](https://github.com/asang24/dotfiles/blob/main/iterm2/iterm4tmux.png)
+      ![image](https://github.com/asang24/dotfiles/blob/main/iterm2/iterm4tmux.png)
 
 ## starship
 
@@ -231,7 +231,7 @@ Also can find in [my github](https://github.com/asang24/dotfiles)
 
 ScreenShoot
 
-<img src="https://github.com/asang24/dotfiles/blob/main/tmux-powerline/Screenshot.png" />
+![image](https://github.com/asang24/dotfiles/blob/main/tmux-powerline/Screenshot.png)
 
 keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
 
