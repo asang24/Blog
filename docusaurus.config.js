@@ -9,7 +9,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "asang24 筆記",
-  favicon: "img/favicon.ico",
+  favicon: "img/coffee.png",
 
   // Set the production url of your site here
   url: "https://your-docusaurus-site.example.com",
@@ -19,8 +19,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "asang24", // Usually your GitHub org/user name.
+  projectName: "Blog-Docusaurus", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -42,15 +42,15 @@ const config = {
           sidebarPath: "./sidebars.js",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          // editUrl:
+          //   "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          // editUrl:
+          //   "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -74,7 +74,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "img/logo.png",
+      image: "img/coffee.png",
       navbar: {
         title: "asang24",
         // logo: {
@@ -86,7 +86,7 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Notes",
+            label: "筆記",
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
@@ -103,7 +103,7 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Docs",
+                label: "筆記",
                 to: "/docs/intro",
               },
             ],
