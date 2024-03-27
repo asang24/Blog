@@ -55,14 +55,31 @@ my-blog
 
 for most of us,we just change `doucusaurus.config.js` file & save `.md` to `/blog`& `/docs` fold.
 
+#### image style
+
+in typora/vscode or other apps, u can use `<img src="" style="zoom:50%" />` to set img style,but cant in react/docusaurus.
+
+- u can use `style={{ transform: 'scale(0.5)' }}`,but it's not suitable for me
+- use `src/components/helper/ImageZoom.js`
+- **prefer** (this can be used in all `docusaurus & typora & vscode`)
+  ```html
+  <div>
+    <img src="" alt="" width="70%" />
+  </div>
+  ```
+
 ## Cloudfare
+
+<!-- import ImageZoom from "@site/src/components/helper/ImageZoom" -->
 
 if u need Cloudfare host your website, first create a repository in github & push blog fold to remote repo
 
 - login to [cloudfare](https://dash.cloudflare.com/login)
 
 - select pages table -> connect to git
-
-  ![deploy](https://cdn.jsdelivr.net/gh/asang24/blog-img@main/blog/deploy.png?50)
+  <!-- <ImageZoom src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/202403262356240.png" /> -->
+  <div>
+  <img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/202403262356240.png" alt="img" width="70%"/>
+  </div>
 
 - Congratulations! pls visit your site.
