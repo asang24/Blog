@@ -132,6 +132,11 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
+      // By default, only shows h2 and h3 headings
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 6,
+      },
     }),
 };
 

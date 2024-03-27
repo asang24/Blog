@@ -68,6 +68,55 @@ in typora/vscode or other apps, u can use `<img src="" style="zoom:50%" />` to s
   </div>
   ```
 
+#### Change Font
+
+> refer to [docs](https://docusaurus.io/docs/static-assets)
+
+- new fold named `font` in `/static/`
+- download your fonts to it
+- add to `/src/css/custom.css`
+  ```css
+  @font-face {
+    /* font-family: "RecMonoCasual"; */
+    font-family: "RecMonoCasual";
+    src: url("/font/RecMonoCasual.ttf");
+    /* src: url("/font/RecMonoCasual-Bold.ttf"); */
+    /* src: url("/font/JetBrainsMonoNerdFont.ttf"); */
+  }
+  html {
+    font-family: "RecMonoCasual";
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "RecMonoCasual";
+  }
+  div,
+  li,
+  p,
+  code,
+  span {
+    font-family: "RecMonoCasual";
+  }
+  ```
+
+#### Table of content
+
+> refer to [toc](https://docusaurus.io/docs/markdown-features/toc)
+
+add to `docusaurus.config.js`
+
+```js
+  // By default, only shows h2 and h3 headings
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 6,
+    },
+```
+
 ## Cloudfare
 
 <!-- import ImageZoom from "@site/src/components/helper/ImageZoom" -->
@@ -83,3 +132,11 @@ if u need Cloudfare host your website, first create a repository in github & pus
   </div>
 
 - Congratulations! pls visit your site.
+
+## Picgo in Vscode
+
+> refer to [picgo](https://picgo.github.io/PicGo-Doc/zh/guide/)
+
+<div>
+<img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/20240327151718.png"   alt="vscode" width="50%"/>
+</div>

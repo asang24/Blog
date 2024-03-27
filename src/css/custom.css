@@ -26,18 +26,10 @@ h5,
 h6 {
   font-family: "RecMonoCasual";
 }
-div {
-  font-family: "RecMonoCasual";
-}
-li {
-  font-family: "RecMonoCasual";
-}
-p {
-  font-family: "RecMonoCasual";
-}
-code {
-  font-family: "RecMonoCasual";
-}
+div,
+li,
+p,
+code,
 span {
   font-family: "RecMonoCasual";
 }
