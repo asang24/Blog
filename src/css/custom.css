@@ -5,6 +5,44 @@
  */
 
 /* You can override the default Infima variables here. */
+
+/* change the font-family -----begin---- */
+
+@font-face {
+  /* font-family: "RecMonoCasual"; */
+  font-family: "RecMonoCasual";
+  src: url("/font/RecMonoCasual.ttf");
+  /* src: url("/font/RecMonoCasual-Bold.ttf"); */
+  /* src: url("/font/JetBrainsMonoNerdFont.ttf"); */
+}
+html {
+  font-family: "RecMonoCasual";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "RecMonoCasual";
+}
+div {
+  font-family: "RecMonoCasual";
+}
+li {
+  font-family: "RecMonoCasual";
+}
+p {
+  font-family: "RecMonoCasual";
+}
+code {
+  font-family: "RecMonoCasual";
+}
+span {
+  font-family: "RecMonoCasual";
+}
+/* change the font-family ------end------ */
+
 :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;

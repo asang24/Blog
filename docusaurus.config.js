@@ -12,7 +12,7 @@ const config = {
   favicon: "img/coffee.png",
 
   // Set the production url of your site here
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://asang24-blog.pages.dev",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -79,7 +79,7 @@ const config = {
         items: [
           {
             type: "docSidebar",
-            sidebarId: "tutorialSidebar",
+            sidebarId: "intro",
             position: "left",
             label: "Notes",
           },
@@ -115,10 +115,6 @@ const config = {
           {
             title: "Links",
             items: [
-              // {
-              //   label: "Blog",
-              //   to: "/blog",
-              // },
               {
                 label: "Lintao | 林饕",
                 href: "https://lintao-index.pages.dev/docs/intro",
