@@ -71,17 +71,18 @@ in typora/vscode or other apps, u can use `<img src="" style="zoom:50%" />` to s
 #### Change Font
 
 > refer to [docs](https://docusaurus.io/docs/static-assets)
+> refer to [recursive](https://github.com/arrowtype/recursive)
 
 - new fold named `font` in `/static/`
 - download your fonts to it
 - add to `/src/css/custom.css`
+
   ```css
+  <!-- ! @ # $ % ^ & * -->
+
   @font-face {
-    /* font-family: "RecMonoCasual"; */
     font-family: "RecMonoCasual";
-    src: url("/font/RecMonoCasual.ttf");
-    /* src: url("/font/RecMonoCasual-Bold.ttf"); */
-    /* src: url("/font/JetBrainsMonoNerdFont.ttf"); */
+    src: url("/font/RecursiveMonoCslSt-Regular.woff2") format("woff2-variations");
   }
   html {
     font-family: "RecMonoCasual";
@@ -100,7 +101,9 @@ in typora/vscode or other apps, u can use `<img src="" style="zoom:50%" />` to s
   code,
   span {
     font-family: "RecMonoCasual";
+    font-weight: 600 1000;
   }
+  <!-- if u want change font weight,set here,Otherwise, the original style of h1/h2...h6 will be changed -->
   ```
 
 #### Table of content
@@ -136,6 +139,11 @@ if u need Cloudfare host your website, first create a repository in github & pus
 ## Picgo in Vscode
 
 > refer to [picgo](https://picgo.github.io/PicGo-Doc/zh/guide/)
+
+```json
+// the data.json saved all the uploaded imgs info
+  "picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
+```
 
 <div>
 <img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/20240327151718.png"   alt="vscode" width="50%"/>

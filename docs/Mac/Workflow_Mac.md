@@ -118,11 +118,6 @@ Also can find in [my github](https://github.com/asang24/dotfiles)
     - Text -> Font:MesloLGS NF Regular 16
     - Window -> Transparency:2 & Backgroud Image:backgroud.jpeg & Blending:5
     - Keys -> set Report modifiers using CSI u -> not remove
-      :::note
-      This setting is for tmux & nvim while some setting keybinds like`Ctrl+/` or `Ctrl+[` and so on
-      :::
-        <!-- <img src ="https://github.com/asang24/dotfiles/blob/main/iterm2/iterm4tmux.png" alt="demo" style="zoom:10%;" /> -->
-      ![image](https://github.com/asang24/dotfiles/blob/main/iterm2/iterm4tmux.png)
 
 ## starship
 
@@ -319,7 +314,7 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
   vim ~/.config/tmux-powerline/themes/theme.sh
   # update the config.sh by setting
   TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR:-'237'}
-
+  
   if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
    TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
     "tmux_session_info 143 234" \
@@ -479,7 +474,7 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
 
   ```bash
   vim ~/.vimrc
-
+  
   set clipboard=unnamed
   set nocompatible
   set backspace=eol,start,indent
