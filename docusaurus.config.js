@@ -9,7 +9,8 @@ import { themes as prismThemes } from "prism-react-renderer";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "asang24 筆記",
-  favicon: "img/coffee.png",
+  // favicon: "img/coffee.png",
+  favicon: "img/github.svg",
 
   // Set the production url of your site here
   url: "https://asang24-blog.pages.dev",
@@ -65,16 +66,18 @@ const config = {
       },
     ],
   ],
+  plugins: ["docusaurus-plugin-image-zoom"],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "img/coffee.png",
+      image: "img/github.svg",
       navbar: {
         title: "asang24",
         // logo: {
         //   alt: "My Site Logo",
-        //   src: "img/3.png",
+        //   src: "img/github.svg",
         // },
         items: [
           {
@@ -126,16 +129,24 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} asang24 dev, Inc.`,
       },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ["bash", "go", "rust"],
       },
       // By default, only shows h2 and h3 headings
       tableOfContents: {
         minHeadingLevel: 2,
         maxHeadingLevel: 6,
+      },
+      zoom: {
+        // selector: ".markdown > img",
+        background: {
+          light: "rgb(255, 255, 255,0.8)",
+          dark: "rgb(50, 50, 50,0.8)",
+        },
       },
     }),
 };

@@ -63,10 +63,23 @@ in typora/vscode or other apps, u can use `<img src="" style="zoom:50%" />` to s
 - use `src/components/helper/ImageZoom.js`
 - **prefer** (this can be used in all `docusaurus & typora & vscode`)
   ```html
-  <div>
-    <img src="" alt="" width="70%" />
-  </div>
+  <img src="" alt="" width="70%" />
   ```
+
+#### image zoom preview
+
+> refer to [docusaurus-plugin-image-zoom](https://github.com/gabrielcsapo/docusaurus-plugin-image-zoom)
+
+```js
+zoom: {
+  // u should Comment this line
+  // selector: ".markdown > img",
+  background: {
+    light: "rgb(255, 255, 255,0.8)",
+    dark: "rgb(50, 50, 50,0.8)",
+  },
+},
+```
 
 #### Change Font
 
@@ -130,9 +143,7 @@ if u need Cloudfare host your website, first create a repository in github & pus
 
 - select pages table -> connect to git
   <!-- <ImageZoom src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/202403262356240.png" /> -->
-  <div>
-  <img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/202403262356240.png" alt="img" width="70%"/>
-  </div>
+  <img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/202403262356240.png" alt="img" width="60%"/>
 
 - Congratulations! pls visit your site.
 
@@ -145,6 +156,4 @@ if u need Cloudfare host your website, first create a repository in github & pus
   "picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
 ```
 
-<div>
 <img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/20240327151718.png"   alt="vscode" width="50%"/>
-</div>
