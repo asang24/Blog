@@ -60,7 +60,7 @@ for most of us,we just change `doucusaurus.config.js` file & save `.md` to `/blo
 in typora/vscode or other apps, u can use `<img src="" style="zoom:50%" />` to set img style,but cant in react/docusaurus.
 
 - u can use `style={{ transform: 'scale(0.5)' }}`,but it's not suitable for me
-- use `src/components/helper/ImageZoom.js`
+- ~~use `src/components/helper/ImageZoom.js`~~
 - **prefer** (this can be used in all `docusaurus & typora & vscode`)
   ```html
   <img src="" alt="" width="70%" />
@@ -83,8 +83,7 @@ zoom: {
 
 #### Change Font
 
-> refer to [docs](https://docusaurus.io/docs/static-assets)
-> refer to [recursive](https://github.com/arrowtype/recursive)
+> refer to [docs](https://docusaurus.io/docs/static-assets) & [recursive](https://github.com/arrowtype/recursive)
 
 - new fold named `font` in `/static/`
 - download your fonts to it

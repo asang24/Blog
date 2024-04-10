@@ -52,6 +52,10 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
   #unset
   git config --global --unset http.proxy
   git config --global --unset https.proxy
+
+  # pretty git log
+  # add to ~/.zshrc
+  alias glog='git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit -n 20'
   ```
 
 - gitignore global
@@ -76,7 +80,9 @@ export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
 source ~/.zshrc
 
 brew update
-# if unistall , then brew cleanup brew autoremove
+# if unistall
+# then brew autoremove
+# brew cleanup
 ```
 
 ## Font
@@ -86,13 +92,17 @@ some persional perfer nerd fonts [nerd fonts](https://www.nerdfonts.com/font-dow
 - [firacode](https://github.com/tonsky/FiraCode)
 - [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
 - [MesloLGS NF](https://github.com/romkatv/powerlevel10k) – which is Recommended font for Powerlevel10k.
-- [RecMonoCasual](https://www.recursive.design/) -- prefer fonts but no nerd font type, so need font patching
+- [Recursive](https://www.recursive.design/) - ~~prefer fonts but no nerd font type, so need font patching~~
+
+  - can be installed from [nerdfonts](https://www.nerdfonts.com/font-downloads)
 
   ```bash
   # https://github.com/ryanoasis/nerd-fonts#option-8-patch-your-own-font
   # Usage
+  cd FontPatcher
+  # then
   fontforge -script font-patcher PATH_TO_FONT
-  # e.g: fontforge -script font-patcher ~/Documents/Fonts/RecMonoCasual/RecMonoCasual-Italic-1.085.ttf
+  # e.g: fontforge -script font-patcher ~/Documents/Fonts/RecMonoCasual/RecMonoCasual-Italic-1.085.ttf --complete
   # then u can find xxxNerdFont.ttf in current path
   ```
 
@@ -100,12 +110,12 @@ some persional perfer nerd fonts [nerd fonts](https://www.nerdfonts.com/font-dow
 
 Also can find in [my github](https://github.com/asang24/dotfiles)
 
-- [iterm2](https://iterm2.com/) -- install iterm2
-- [color schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) -- install color schemes
+- [iterm2](https://iterm2.com/) - install iterm2
+- [color schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) - install color schemes
 - install font
   - [firacode](https://github.com/tonsky/FiraCode)
   - [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
-  - [MesloLGS NF](https://github.com/romkatv/powerlevel10k) -- which is Recommended font for Powerlevel10k.
+  - ~~[MesloLGS NF](https://github.com/romkatv/powerlevel10k) - which is Recommended font for Powerlevel10k.~~
 - import json file
   - [iterm2.json](https://github.com/asang24/dotfiles/blob/main/iterm2/iterm2.json)
   - personal theme [gruvbox-material-iterm2](https://github.com/AmmarCodes/gruvbox-material-iterm2)
@@ -115,7 +125,7 @@ Also can find in [my github](https://github.com/asang24/dotfiles)
   - Profiles
 
     - General -> Basic Colors:background:343232(rgb hex)
-    - Text -> Font:MesloLGS NF Regular 16
+    - Text -> Font:~~MesloLGS NF Regular 16~~ RecMonoCasual Nerd Font 16
     - Window -> Transparency:2 & Backgroud Image:backgroud.jpeg & Blending:5
     - Keys -> set Report modifiers using CSI u -> not remove
 
@@ -128,6 +138,10 @@ Also can find in [my github](https://github.com/asang24/dotfiles)
   vim ~/.zshrc
   # add
   eval "$(starship init zsh)"
+
+  # config
+  # use prsent & restart terminal
+  starship preset nerd-font-symbols -o ~/.config/starship.toml
   ```
 
 - Zsh plugins
@@ -135,21 +149,20 @@ Also can find in [my github](https://github.com/asang24/dotfiles)
   ```bash
   # zsh-autosuggestions
   brew install zsh-autosuggestions
-  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
   # zsh-syntax-highlighting
   brew install zsh-syntax-highlighting
-  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
   # autojump
   brew install autojump
-  [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+  # add to ~/.zshrc
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
   # by default zsh is case sensitive
   # Ignore Case Sensitive
   autoload -Uz +X compinit && compinit
-  zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-  zstyle ':completion:*' menu select
+  zstyle ':completion:' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+  zstyle ':completion:' menu select
 
   # then source ~/.zshrc
   ```
@@ -157,19 +170,12 @@ Also can find in [my github](https://github.com/asang24/dotfiles)
 - last directory
 
   ```bash
-  # add to ~/.zshrc
-  chpwd() {
-   # Save the current directory to a file
-   echo $PWD > ~/.last_directory
-  }
-  [ -f ~/.last_directory ] && cd $(cat ~/.last_directory)
-  ```
-
-- config
-
-  ```bash
-  # use prsent & restart terminal
-  starship preset nerd-font-symbols -o ~/.config/starship.toml
+    # add to ~/.zshrc
+    chpwd() {
+     # Save the current directory to a file
+     echo $PWD > ~/.last_directory
+    }
+    [ -f ~/.last_directory ] && cd $(cat ~/.last_directory)
   ```
 
 ## ~~oh-my-zsh~~
@@ -314,7 +320,7 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
   vim ~/.config/tmux-powerline/themes/theme.sh
   # update the config.sh by setting
   TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR:-'237'}
-  
+
   if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
    TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
     "tmux_session_info 143 234" \
@@ -384,6 +390,25 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   - 2
 
 - Settings
+
+  ```json
+  {
+    // a part of my settings
+    "workbench.colorTheme": "Everforest Dark",
+    "editor.fontSize": 16,
+    "terminal.integrated.fontSize": 14,
+    "editor.fontFamily": "RecMonoCasual Nerd Font",
+    "terminal.integrated.fontFamily": "RecMonoCasual Nerd Font",
+    "editor.fontLigatures": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.list.smoothScrolling": true,
+    "window.dialogStyle": "custom",
+    "everforest.italicKeywords": true,
+    "everforest.italicComments": true,
+    "window.density.editorTabHeight": "compact"
+  }
+  ```
+
 - Keybinds
 
 ## Prefer command tools
@@ -393,15 +418,15 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
 - [bat](https://github.com/sharkdp/bat) -- cat clone with syntax highlighting and Git integration
 
   ```bash
-     brew install bat
-     # config
-     bat --generate-config-file
-     # add to bat/config
-    --paging=never
-     --theme="gruvbox-dark"
-    --style="numbers,changes,header,snip,rule"
-    # add to ~/.zshrc
-    alias cat='bat'
+  brew install bat
+  # config
+  bat --generate-config-file
+  # add to ~/.config/bat/config
+  --paging=never
+  --theme="gruvbox-dark"
+  --style="numbers,changes,header,snip,rule"
+  # add to ~/.zshrc
+  alias cat='bat'
   ```
 
 - [delta](https://github.com/dandavison/delta) -- git diff
@@ -433,8 +458,18 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
 
 - [fzf](https://github.com/junegunn/fzf) -- command-line fuzzy finder
 
+- [fzf-tab](https://github.com/Aloxaf/fzf-tab) -- completion selection menu with fzf
+
   ```bash
   brew install fzf
+  # config
+
+  # fzf
+  eval "$(fzf --zsh)"
+  export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
+
+  git clone https://github.com/Aloxaf/fzf-tab ~/.zsh
+  source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
   ```
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
@@ -449,6 +484,17 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
   brew install bottom
   # use
   btm
+  ```
+
+- [lsd](https://github.com/lsd-rs/lsd) -- ls command
+
+  ```bash
+  brew install lsd
+
+  # add to ~/.zshrc
+  alias ls='lsd'cat
+  alias la='ls -la'
+  alias lt='ls --tree'
   ```
 
 - [cheat.sh](https://github.com/chubin/cheat.sh) -- command line cheat sheet
@@ -474,7 +520,7 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
 
   ```bash
   vim ~/.vimrc
-  
+
   set clipboard=unnamed
   set nocompatible
   set backspace=eol,start,indent
@@ -512,7 +558,7 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
 
 - [iTerm2](https://iterm2.com/) -- Terminal app
 
-- [Rectangle](https://github.com/rxhanson/Rectangle) -- window management
+- ~~[Rectangle](https://github.com/rxhanson/Rectangle) -- window management~~
 
   ```bash
   # set
@@ -542,7 +588,7 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
   gh: https://github.com/search?q=%s GitHub
   ```
 
-- [sublime text](https://www.sublimetext.com/) -- buy license fromtaobao
+- [sublime text](https://www.sublimetext.com/) -- buy license from taobao
 
   ```bash
   {
@@ -553,9 +599,9 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
    "color_scheme": "ayu-light.sublime-color-scheme",
    "theme": "ayu-light.sublime-theme",
    "always_prompt_for_file_reload": true,
-   "font_size": 15,
+   "font_size": 16,
    "remember_open_files": true,
    "update_check": false,
-   "font_face": "FiraCode Nerd Font",
+   "font_face": "RecMonoCasual Nerd Font",
   }
   ```

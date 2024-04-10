@@ -3,4 +3,11 @@ title: Introduction
 sidebar_position: 1
 ---
 
-# something todo
+**This blog is used to record personal env configurations and study notes about go & rust.**
+
+### env config
+
+- [mac workflow](/docs/Mac/Mac_Workflow.md)
+- [docusaurus config](/docs/Mac/Docusaurus_Config.md)
+
+### todo

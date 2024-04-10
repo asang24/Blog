@@ -16,6 +16,9 @@
 html {
   font-family: "RecMonoCasual";
 }
+body {
+  font-family: "RecMonoCasual";
+}
 h1,
 h2,
 h3,
@@ -24,10 +27,15 @@ h5,
 h6 {
   font-family: "RecMonoCasual";
 }
+a,
 div,
+ul,
 li,
+ol,
+blockquote,
 p,
 code,
+table,
 span {
   font-family: "RecMonoCasual";
   font-weight: 600 1000;
