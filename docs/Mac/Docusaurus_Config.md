@@ -89,34 +89,34 @@ zoom: {
 - download your fonts to it
 - add to `/src/css/custom.css`
 
-  ```css
-  <!-- ! @ # $ % ^ & * -->
+```css
+<!-- ! @ # $ % ^ & * -->
 
-  @font-face {
-    font-family: "RecMonoCasual";
-    src: url("/font/RecursiveMonoCslSt-Regular.woff2") format("woff2-variations");
-  }
-  html {
-    font-family: "RecMonoCasual";
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "RecMonoCasual";
-  }
-  div,
-  li,
-  p,
-  code,
-  span {
-    font-family: "RecMonoCasual";
-    font-weight: 600 1000;
-  }
-  <!-- if u want change font weight,set here,Otherwise, the original style of h1/h2...h6 will be changed -->
-  ```
+@font-face {
+  font-family: "RecMonoCasual";
+  src: url("/font/RecursiveMonoCslSt-Regular.woff2") format("woff2-variations");
+}
+html {
+  font-family: "RecMonoCasual";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "RecMonoCasual";
+}
+div,
+li,
+p,
+code,
+span {
+  font-family: "RecMonoCasual";
+  font-weight: 600 1000;
+}
+<!-- if u want change font weight,set here,Otherwise, the original style of h1/h2...h6 will be changed -->
+```
 
 #### Table of content
 
@@ -134,25 +134,27 @@ add to `docusaurus.config.js`
 
 ## Cloudfare
 
-<!-- import ImageZoom from "@site/src/components/helper/ImageZoom" -->
-
 if u need Cloudfare host your website, first create a repository in github & push blog fold to remote repo
 
 - login to [cloudfare](https://dash.cloudflare.com/login)
-
 - select pages table -> connect to git
-  <!-- <ImageZoom src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/202403262356240.png" /> -->
-  <img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/202403262356240.png" alt="img" width="60%"/>
+- build settings
+  - build command `npm run build`
+  - out directory `/build`
+  - <img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/202403262356240.png" alt="img" width="60%"/>
 
-- Congratulations! pls visit your site.
+Congratulations! pls visit your site.
 
 ## Picgo in Vscode
 
 > refer to [picgo](https://picgo.github.io/PicGo-Doc/zh/guide/)
+>
+> if u forget your GitHub tokens, u cant find it in the blew file `data.json`
 
 ```json
 // the data.json saved all the uploaded imgs info
-  "picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
+// this is vscode settings
+"picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
 ```
 
-<img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/20240327151718.png"   alt="vscode" width="50%"/>
+<img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/20240327151718.png"   alt="vscode" width="60%"/>

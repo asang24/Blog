@@ -252,17 +252,44 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
 |    `Ctrl`    |    j    |      select pane -D       |
 |   `prefix`   |    c    |        new window         |
 
+>   config refer to [dotfiles](https://github.com/asang24/dotfiles/blob/main/tmux/tmux.conf)
+
 - install `tmux`
 
   ```bash
   brew install tmux
-
+  
   # config
   mkdir -p ~/.config/tmux
   vim ~/.config/tmux/tmux.conf
-
-  # refer to dotfiles
+  # all settings refer to dotfiles
   ```
+
+- status bar
+
+    ```bash
+    # Status bar
+    set-option -g status on
+    set-option -g status-interval 1
+    set-option -g status-justify centre
+    set-option -g status-style "bg=#3a3a3a"
+    
+    set-option -g status-left "[#S] "
+    #set-option -g status-left "#[bg=#0087ff] ❐ #S "  
+    set-option -g status-left-length 400
+    set-option -g status-left-style default
+    
+    set-option -g status-right "%Y-%m-%d %H:%M "
+    #set -g status-right "#[bg=red] %Y-%m-%d %H:%M "
+    set-option -g status-right-length 600 
+    set-option -g status-right-style default
+    
+    set -wg window-status-current-format " #I:#W#F "
+    set -wg window-status-current-style "fg=#cb231d,bg=#3a3a3a"
+    #set -wg window-status-current-style "bg=red" # red
+    #set -wg window-status-last-style "fg=red"
+    set -wg window-status-separator ""
+    ```
 
 - install `tpm`
 
@@ -283,7 +310,7 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
   tmux source ~/.config/tmux/tmux.conf
   ```
 
-- install `tmux-powerline`
+- ~~install `tmux-powerline`~~
 
   ```bash
   # add to ~/.config/tmux/tmux.confg under tpm
@@ -291,7 +318,7 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
   tmux source ~/.config/tmux/tmux.conf
   ```
 
-- also can install `themepack`
+- ~~also can install `themepack`~~
 
   ```bash
   # https://github.com/jimeh/tmux-themepack
@@ -301,7 +328,7 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
   set -g @themepack 'powerline/block/cyan'
   ```
 
-- config file
+- ~~config file~~
 
   ```bash
   ~/.config/tmux/plugins/tmux-powerline/generate_rc.sh
@@ -312,7 +339,7 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
   export TMUX_POWERLINE_THEME="theme"
   ```
 
-- config theme
+- ~~config theme~~
 
   ```bash
   mkdir -p ~/.config/tmux-powerline/themes
@@ -320,12 +347,12 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
   vim ~/.config/tmux-powerline/themes/theme.sh
   # update the config.sh by setting
   TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR:-'237'}
-
+  
   if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
    TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
     "tmux_session_info 143 234" \
     #"hostname 33 0" \
-    "vcs_branch 29 88" \
+    "vcs_branch 237 167" \
     #"vcs_compare 60 255" \
     #"vcs_staged 64 255" \
     "vcs_modified 9 255" \
@@ -520,7 +547,7 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
 
   ```bash
   vim ~/.vimrc
-
+  
   set clipboard=unnamed
   set nocompatible
   set backspace=eol,start,indent
@@ -605,3 +632,16 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
    "font_face": "RecMonoCasual Nerd Font",
   }
   ```
+
+- [PicGo](https://picgo.github.io/PicGo-Doc/zh/guide/) -- upload images to GitHub 
+
+    >   if u forget your GitHub tokens, u cant find it in the blew file `data.json`
+    
+    ```json
+    // the data.json saved all the uploaded imgs info
+    // this is vscode settings
+    "picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
+    ```
+    
+    If use typora & picgo app, when u pasted images in typora,it will cached images in the path`$home/Library/Application Support/typora-user-images$`,so u need clean it.
+    
