@@ -8,6 +8,6 @@ sidebar_position: 1
 ### env config
 
 - [mac workflow](/docs/Mac/Mac_Workflow.md)
-- [docusaurus config](/docs/Mac/Docusaurus_Config.md)
+- [blog config](/docs/Mac/Blog_Config.md)
 
 ### todo

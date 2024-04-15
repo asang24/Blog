@@ -90,11 +90,12 @@ brew update
 some persional perfer nerd fonts [nerd fonts](https://www.nerdfonts.com/font-downloads)
 
 - [firacode](https://github.com/tonsky/FiraCode)
-- [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
-- [MesloLGS NF](https://github.com/romkatv/powerlevel10k) – which is Recommended font for Powerlevel10k.
-- [Recursive](https://www.recursive.design/) - ~~prefer fonts but no nerd font type, so need font patching~~
 
-  - can be installed from [nerdfonts](https://www.nerdfonts.com/font-downloads)
+- [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
+
+- [Recursive](https://www.recursive.design/) - prefer fonts
+
+  - nerd font type can be installed from [nerdfonts](https://www.nerdfonts.com/font-downloads)
 
   ```bash
   # https://github.com/ryanoasis/nerd-fonts#option-8-patch-your-own-font
@@ -115,7 +116,8 @@ Also can find in [my github](https://github.com/asang24/dotfiles)
 - install font
   - [firacode](https://github.com/tonsky/FiraCode)
   - [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
-  - ~~[MesloLGS NF](https://github.com/romkatv/powerlevel10k) - which is Recommended font for Powerlevel10k.~~
+  - [Recursive](https://www.recursive.design/) - prefer fonts
+    - nerd font type can be installed from [nerdfonts](https://www.nerdfonts.com/font-downloads)
 - import json file
   - [iterm2.json](https://github.com/asang24/dotfiles/blob/main/iterm2/iterm2.json)
   - personal theme [gruvbox-material-iterm2](https://github.com/AmmarCodes/gruvbox-material-iterm2)
@@ -124,8 +126,8 @@ Also can find in [my github](https://github.com/asang24/dotfiles)
   - Appearance -> General -> Theme:Minimal & Tab bar:Bottom & Status bar:Top
   - Profiles
 
-    - General -> Basic Colors:background:343232(rgb hex)
-    - Text -> Font:~~MesloLGS NF Regular 16~~ RecMonoCasual Nerd Font 16
+    - General -> Basic Colors:background:3e3d3d(rgb hex)
+    - Text -> Font: RecMonoCasual Nerd Font 16
     - Window -> Transparency:2 & Backgroud Image:backgroud.jpeg & Blending:5
     - Keys -> set Report modifiers using CSI u -> not remove
 
@@ -178,56 +180,6 @@ Also can find in [my github](https://github.com/asang24/dotfiles)
     [ -f ~/.last_directory ] && cd $(cat ~/.last_directory)
   ```
 
-## ~~oh-my-zsh~~
-
-- install [ohmyzsh](https://mirrors.tuna.tsinghua.edu.cn/help/ohmyzsh.git/)
-- plugins
-
-  - zsh-syntax-highlighting
-
-    ```bash
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    ```
-
-  - zsh-autosuggestions
-
-    ```bash
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    ```
-
-  - autojump
-
-    ```bash
-      brew install autojump
-    ```
-
-- add to ~/.zshrc
-
-```bash
- plugins=(
-  git
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  autojump
- )
- [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-```
-
-- powerlevel10
-
-  - [install](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#installation) and config style
-
-- last directory
-
-  ```bash
-  # add to ~/.zshrc
-  chpwd() {
-   # Save the current directory to a file
-   echo $PWD > ~/.last_directory
-  }
-  [ -f ~/.last_directory ] && cd $(cat ~/.last_directory)
-  ```
-
 ## Tmux
 
 ScreenShoot
@@ -252,13 +204,13 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
 |    `Ctrl`    |    j    |      select pane -D       |
 |   `prefix`   |    c    |        new window         |
 
->   config refer to [dotfiles](https://github.com/asang24/dotfiles/blob/main/tmux/tmux.conf)
+> config refer to [dotfiles](https://github.com/asang24/dotfiles/blob/main/tmux/tmux.conf)
 
 - install `tmux`
 
   ```bash
   brew install tmux
-  
+
   # config
   mkdir -p ~/.config/tmux
   vim ~/.config/tmux/tmux.conf
@@ -267,29 +219,29 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
 
 - status bar
 
-    ```bash
-    # Status bar
-    set-option -g status on
-    set-option -g status-interval 1
-    set-option -g status-justify centre
-    set-option -g status-style "bg=#3a3a3a"
-    
-    set-option -g status-left "[#S] "
-    #set-option -g status-left "#[bg=#0087ff] ❐ #S "  
-    set-option -g status-left-length 400
-    set-option -g status-left-style default
-    
-    set-option -g status-right "%Y-%m-%d %H:%M "
-    #set -g status-right "#[bg=red] %Y-%m-%d %H:%M "
-    set-option -g status-right-length 600 
-    set-option -g status-right-style default
-    
-    set -wg window-status-current-format " #I:#W#F "
-    set -wg window-status-current-style "fg=#cb231d,bg=#3a3a3a"
-    #set -wg window-status-current-style "bg=red" # red
-    #set -wg window-status-last-style "fg=red"
-    set -wg window-status-separator ""
-    ```
+  ```bash
+  # Status bar
+  set-option -g status on
+  set-option -g status-interval 1
+  set-option -g status-justify centre
+  set-option -g status-style "bg=#3a3a3a"
+
+  set-option -g status-left "[#S] "
+  #set-option -g status-left "#[bg=#0087ff] ❐ #S "
+  set-option -g status-left-length 400
+  set-option -g status-left-style default
+
+  set-option -g status-right "%Y-%m-%d %H:%M "
+  #set -g status-right "#[bg=red] %Y-%m-%d %H:%M "
+  set-option -g status-right-length 600
+  set-option -g status-right-style default
+
+  set -wg window-status-current-format " #I:#W#F "
+  set -wg window-status-current-style "fg=#cb231d,bg=#3a3a3a"
+  #set -wg window-status-current-style "bg=red" # red
+  #set -wg window-status-last-style "fg=red"
+  set -wg window-status-separator ""
+  ```
 
 - install `tpm`
 
@@ -309,76 +261,6 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
   # type this in terminal if tmux is already running
   tmux source ~/.config/tmux/tmux.conf
   ```
-
-- ~~install `tmux-powerline`~~
-
-  ```bash
-  # add to ~/.config/tmux/tmux.confg under tpm
-  set -g @plugin 'erikw/tmux-powerline'
-  tmux source ~/.config/tmux/tmux.conf
-  ```
-
-- ~~also can install `themepack`~~
-
-  ```bash
-  # https://github.com/jimeh/tmux-themepack
-  set -g @plugin 'jimeh/tmux-themepack'
-  # Press prefix + I to install the plugin and source it.
-  set -g @themepack 'basic'
-  set -g @themepack 'powerline/block/cyan'
-  ```
-
-- ~~config file~~
-
-  ```bash
-  ~/.config/tmux/plugins/tmux-powerline/generate_rc.sh
-  mv ~/.config/tmux-powerline/config.sh.default ~/.config/tmux-powerline/config.sh
-  vim ~/.config/tmux-powerline/config.sh
-  # update the config.sh by setting
-  TMUX_POWERLINE_SEG_DATE_FORMAT="%m/%d/%Y"
-  export TMUX_POWERLINE_THEME="theme"
-  ```
-
-- ~~config theme~~
-
-  ```bash
-  mkdir -p ~/.config/tmux-powerline/themes
-  cp ~/.config/tmux/plugins/tmux-powerline/themes/default.sh ~/.config/tmux-powerline/themes/theme.sh
-  vim ~/.config/tmux-powerline/themes/theme.sh
-  # update the config.sh by setting
-  TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR:-'237'}
-  
-  if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
-   TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-    "tmux_session_info 143 234" \
-    #"hostname 33 0" \
-    "vcs_branch 237 167" \
-    #"vcs_compare 60 255" \
-    #"vcs_staged 64 255" \
-    "vcs_modified 9 255" \
-    #"vcs_others 245 0" \
-   )
-  fi
-  if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
-   TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
-    #"earthquake 3 0" \
-    "pwd 237 167" \
-    "date_day 237 255" \
-    "date 237 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}" \
-    "time 237 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}" \
-    #"utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-   )
-  fi
-  tmux source ~/.config/tmux/tmux.conf
-  ```
-
-## Neovim
-
-用到的使用场景
-
-- 光标多选: 选中之后按 Ctrl+v 上下多选
-- 按 ya( 复制()内内容
-- 按 f 键向后搜索内容
 
 ## Golang
 
@@ -403,40 +285,445 @@ go install mvdan.cc/gofumpt@latest
 
 ## Rust
 
+### Setup
+
+Refer to [set up](https://www.rust-lang.org/learn/get-started)
+
 ```bash
-# https://www.rust-lang.org/zh-CN/tools/install
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
+其他命令：
+
+```bash
+rustc --version
+cargo --version
+rustup update
+```
+
+<!-- rustwiki-->[官方文档中文](https://rustwiki.org/)
+
+<!-- Rust 程序设计语言 --> [中文版](https://rustwiki.org/zh-CN/book/)
+
+<!-- Rust 程序设计语言 --> [官方版](https://doc.rust-lang.org/book/ch01-01-installation.html)
+
+<!-- Rust Cookbook 中文版 -->[Rust Cookbook 中文版](https://rustwiki.org/zh-CN/rust-cookbook/)
+
+### Vscode settings
+
+Install extensions
+
+-   [rust-analyzer](https://github.com/rust-lang/rust-analyzer) - Rust language support for Visual Studio Code
+-   [Even Better TOML](https://github.com/tamasfe/taplo#readme) - TOML support()
+-   [crates](https://github.com/serayuzgur/crates) - manage dependencies with Cargo.toml
+
+### Neovim
+
+Requrie [mason.nvim](https://github.com/williamboman/mason.nvim) & [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim) & [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+
+-   `MasonInstall taplo` - named Even Better TOML in vscode
+
+-   `MasonInstall rust_analyzer` - lsp servers
+
+-   `TSInstall rust` & `TSInstall toml` - supported by `nvim-treesitter`
+
+-   install [mrcjkb/rustaceanvim](https://github.com/mrcjkb/rustaceanvim) - powerful rust extension, out of box
+
+    ```bash
+    {
+      'mrcjkb/rustaceanvim',
+      version = '^4', -- Recommended
+      ft = { 'rust' },
+    }
+    ```
+
+-   install [crates.nvim](https://github.com/Saecki/crates.nvim) - managing crates.io dependencies
+
+    ```bash
+    {
+        'saecki/crates.nvim',
+        event = { "BufRead Cargo.toml" },
+        config = function()
+            require('crates').setup()
+        end,
+    }
+    ```
+
+### Awesome Rust
+
+-   [awesome rust](https://github.com/rust-unofficial/awesome-rust)
+
+-   [Rust嵌入式](https://github.com/rust-embedded/awesome-embedded-rust)
+
+
+
+## Neovim
+
+
+
+
+
 ## VsCode
 
-- Plugins
+### plugins
 
-  - 1
+#### Common plugins
 
-  - 2
-
-- Settings
+- `Everforest` -- theme
 
   ```json
+  "workbench.colorTheme": "Everforest Dark",
+  "everforest.italicKeywords": true,
+  "everforest.italicComments": true,
+  ```
+
+- `Code Runner` -- run code
+
+- `Github Copilot` -- autocomplete code
+
+- `GitLens` -- Supercharge Git in vscode
+
+- `Material Icon Theme`
+
+  ```json
+  "workbench.iconTheme": "material-icon-theme",
+  ```
+
+- `Project Manager`
+
+  ```json
+  // settings.json
+  "projectManager.git.baseFolders": ["$home/Documents/Code/"],
+  "projectManager.sortList": "Recent",
+
+  // keybindings.json
   {
-    // a part of my settings
-    "workbench.colorTheme": "Everforest Dark",
-    "editor.fontSize": 16,
-    "terminal.integrated.fontSize": 14,
-    "editor.fontFamily": "RecMonoCasual Nerd Font",
-    "terminal.integrated.fontFamily": "RecMonoCasual Nerd Font",
-    "editor.fontLigatures": true,
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.list.smoothScrolling": true,
-    "window.dialogStyle": "custom",
-    "everforest.italicKeywords": true,
-    "everforest.italicComments": true,
-    "window.density.editorTabHeight": "compact"
+  "command": "projectManager.listGitProjects#sideBarGit",
+  "key": "cmd+o"
   }
   ```
 
-- Keybinds
+- `YAML` -- YAML Language Suppor
+
+  ```json
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnSave": true
+  },
+  "yaml.format.enable": true,
+  "yaml.completion": true,
+  ```
+
+- `Prettier` -- Formatter
+
+- `picgo` -- upload images
+
+  > if u forget your GitHub tokens, u cant find it in the blew file `data.json`
+
+  ```json
+  // picgo
+  // the data.json saved all the uploaded imgs info
+  "picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
+  "picgo.picBed.current": "github",
+  "picgo.picBed.github.repo": "<your name>/<repo>",
+  "picgo.picBed.github.branch": "main",
+  "picgo.picBed.github.path": "<fold>/",
+  "picgo.picBed.github.customUrl": "https://cdn.jsdelivr.net/gh/<your name>/<repo>",
+  "picgo.picBed.github.token": "<your token>",
+  ```
+
+- `Markdown All in One` -- Markdown Support
+
+  ```json
+  "markdown.preview.fontFamily": "RecMonoCasual Nerd Font",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  ```
+
+- `IntelliCode` -- AI assisted development
+
+- `Thunder Client` -- lightweight Rest API Client
+
+- `Vim`
+
+  ```json
+  // vim
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.foldfix": true,
+  "vim.leader": "<space>",
+  // To improve performance
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"]
+    },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+  "vim.insertModeKeyBindingsNonRecursive": [
+    { "before": ["<C-h>"], "after": ["<Left>"] },
+    { "before": ["<C-j>"], "after": ["<Down>"] },
+    { "before": ["<C-k>"], "after": ["<Up>"] },
+    { "before": ["<C-l>"], "after": ["<Right>"] }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>nh"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["leader", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["leader", "w"],
+      "commands": [":w"]
+    },
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "after": ["^"],
+      "before": ["H"]
+    },
+    {
+      "after": ["$"],
+      "before": ["L"]
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.diagnostic.prev"]
+    },
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.diagnostic.next"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.referenceSearch.trigger"]
+    },
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.peekImplementation"]
+    },
+    {
+      "before": ["g", "p"],
+      "commands": ["editor.action.peekDefinition"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  ```
+
+#### Golang plugins
+
+- `Go`
+
+  ```bash
+  # press cmd+shift+p in vscode and select
+  # go Install/Update Tolls
+  
+  # install gofumpt
+  go install mvdan.cc/gofumpt@latest
+  ```
+
+  ```json
+  // golang
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit",
+      "source.fixAll": "explicit"
+    }
+  },
+  "go.formatTool": "gofumpt",
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": ["--fast"],
+  "gopls": {
+    "formatting.gofumpt": true,
+    "ui.completion.usePlaceholders": true,
+    "ui.semanticTokens": true,
+    "ui.diagnostic.analyses": {
+      "unusedvariable": true,
+      "unusedwrite": true
+    }
+  },
+  ```
+
+#### Rust plugins
+
+- `rust-analyzer`
+- `Even Better TOML`
+- `crates`
+
+### Settings
+
+Other commons settings ,excluding the above plugins configurations
+
+```json
+{
+  // theme & font
+  "workbench.colorTheme": "Everforest Dark",
+  "everforest.italicKeywords": true,
+  "everforest.italicComments": true,
+  "editor.fontSize": 16,
+  "terminal.integrated.fontSize": 14,
+  "editor.fontFamily": "RecMonoCasual Nerd Font",
+  "terminal.integrated.fontFamily": "RecMonoCasual Nerd Font",
+  "editor.fontLigatures": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.list.smoothScrolling": true,
+  "window.dialogStyle": "custom",
+  "window.density.editorTabHeight": "compact",
+  // extensions
+  "extensions.autoCheckUpdates": false,
+  "extensions.autoUpdate": "onlySelectedExtensions",
+  // search
+  "search.smartCase": true,
+  "search.showLineNumbers": true,
+  // files
+  "files.autoSave": "afterDelay",
+  "files.autoGuessEncoding": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  // explorer
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.compactFolders": true,
+  "explorer.incrementalNaming": "smart",
+  // editor
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.stickyTabStops": true,
+  "editor.tabSize": 4,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.formatOnType": true,
+  "editor.insertSpaces": true,
+  "editor.snippetSuggestions": "top",
+  "editor.suggest.localityBonus": true,
+  "editor.smoothScrolling": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.inlineSuggest.enabled": true,
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "on",
+  "editor.inlayHints.enabled": "on",
+  "editor.renderWhitespace": "none",
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.markdownlint": "explicit",
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.suggestSelection": "first",
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true
+  },
+  // debug
+  "debug.showBreakpointsInOverviewRuler": true,
+  "debug.console.acceptSuggestionOnEnter": "on",
+  // lua
+  "[lua]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // json
+  "json.format.enable": true,
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
+```
+
+### Keybinds
+
+all keybindings settings in vscode
+
+```json
+[
+  {
+    "command": "projectManager.listGitProjects#sideBarGit",
+    "key": "cmd+o"
+  },
+  {
+    "command": "workbench.action.toggleSidebarVisibility",
+    "key": "ctrl+e"
+  },
+  {
+    "command": "workbench.files.action.focusFilesExplorer",
+    "key": "ctrl+e",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "workbench.files.action.focusFilesExplorer",
+    "key": "ctrl+e",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "explorer.newFile",
+    "key": "a",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "renameFile",
+    "key": "r",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "filesExplorer.copy",
+    "key": "c",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "filesExplorer.paste",
+    "key": "p",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "deleteFile",
+    "key": "d",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+cmd+/",
+    "command": "editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    //  disable the default block comment keybinding
+    "key": "shift+alt+a",
+    "command": "-editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
+  }
+]
+```
+
+
 
 ## Prefer command tools
 
@@ -633,15 +920,14 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
   }
   ```
 
-- [PicGo](https://picgo.github.io/PicGo-Doc/zh/guide/) -- upload images to GitHub 
+- [PicGo](https://picgo.github.io/PicGo-Doc/zh/guide/) -- upload images to GitHub
 
-    >   if u forget your GitHub tokens, u cant find it in the blew file `data.json`
-    
-    ```json
-    // the data.json saved all the uploaded imgs info
-    // this is vscode settings
-    "picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
-    ```
-    
-    If use typora & picgo app, when u pasted images in typora,it will cached images in the path`$home/Library/Application Support/typora-user-images$`,so u need clean it.
-    
+  > if u forget your GitHub tokens, u cant find it in the blew file `data.json`
+
+  ```json
+  // the data.json saved all the uploaded imgs info
+  // this is vscode settings
+  "picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
+  ```
+
+  If use typora & picgo app, when u pasted images in typora,it will cached images in the path`$home/Library/Application Support/typora-user-images$`,so u need clean it.

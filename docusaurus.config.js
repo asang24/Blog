@@ -134,7 +134,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: ["bash", "go", "rust"],
+        additionalLanguages: ["bash", "go", "rust", "json", "yaml", "toml"],
       },
       // By default, only shows h2 and h3 headings
       tableOfContents: {

@@ -3,7 +3,7 @@ description: set up doucsaurus blog
 keywords: [docusaurus, blog, cloudfare]
 ---
 
-# [Blog] Getting started
+# [Blog] Config
 
 ## Docusaurus
 
@@ -59,8 +59,12 @@ for most of us,we just change `doucusaurus.config.js` file & save `.md` to `/blo
 
 in typora/vscode or other apps, u can use `<img src="" style="zoom:50%" />` to set img style,but cant in react/docusaurus.
 
-- u can use `style={{ transform: 'scale(0.5)' }}`,but it's not suitable for me
-- ~~use `src/components/helper/ImageZoom.js`~~
+- u can use this, but not work in `typora` & cause `docusaurus-plugin-image-zoom` plugin not working in docusaurus. 
+
+    ```html
+    <img src="" alt="" style={{ zoom: '0.5' }} />
+    ```
+
 - **prefer** (this can be used in all `docusaurus & typora & vscode`)
   ```html
   <img src="" alt="" width="70%" />
@@ -90,8 +94,6 @@ zoom: {
 - add to `/src/css/custom.css`
 
 ```css
-<!-- ! @ # $ % ^ & * -->
-
 @font-face {
   font-family: "RecMonoCasual";
   src: url("/font/RecursiveMonoCslSt-Regular.woff2") format("woff2-variations");
@@ -107,15 +109,20 @@ h5,
 h6 {
   font-family: "RecMonoCasual";
 }
-div,
-li,
+a,
 p,
+ul,
+li,
+ol,
+blockquote,
+div,
 code,
+table,
 span {
   font-family: "RecMonoCasual";
   font-weight: 600 1000;
+  /* if u want change font weight,set here,Otherwise, the original style of h1/h2...h6 will be changed  */
 }
-<!-- if u want change font weight,set here,Otherwise, the original style of h1/h2...h6 will be changed -->
 ```
 
 #### Table of content
@@ -137,11 +144,15 @@ add to `docusaurus.config.js`
 if u need Cloudfare host your website, first create a repository in github & push blog fold to remote repo
 
 - login to [cloudfare](https://dash.cloudflare.com/login)
+
 - select pages table -> connect to git
+
 - build settings
   - build command `npm run build`
+  
   - out directory `/build`
-  - <img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/202403262356240.png" alt="img" width="60%"/>
+  
+      <img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/202403262356240.png" alt="img"  width="70%"  />
 
 Congratulations! pls visit your site.
 
@@ -157,4 +168,4 @@ Congratulations! pls visit your site.
 "picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
 ```
 
-<img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/20240327151718.png"   alt="vscode" width="60%"/>
+<img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/20240327151718.png"   alt="vscode" width="70%" />
