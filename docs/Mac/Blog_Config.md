@@ -59,7 +59,7 @@ for most of us,we just change `doucusaurus.config.js` file & save `.md` to `/blo
 
 in typora/vscode or other apps, u can use `<img src="" style="zoom:50%" />` to set img style,but cant in react/docusaurus.
 
-- u can use this, but not work in `typora` & cause `docusaurus-plugin-image-zoom` plugin not working in docusaurus. 
+- u can use this, but not work in `typora` & cause `docusaurus-plugin-image-zoom` plugin not working in docusaurus.
 
     ```html
     <img src="" alt="" style={{ zoom: '0.5' }} />
@@ -149,10 +149,10 @@ if u need Cloudfare host your website, first create a repository in github & pus
 
 - build settings
   - build command `npm run build`
-  
+
   - out directory `/build`
-  
-      <img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/202403262356240.png" alt="img"  width="70%"  />
+
+      <img src="https://cdn.jsdelivr.net/gh/dev24hrs/blog-img/blog/202403262356240.png" alt="img"  width="70%"  />
 
 Congratulations! pls visit your site.
 
@@ -168,4 +168,4 @@ Congratulations! pls visit your site.
 "picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
 ```
 
-<img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/blog/20240327151718.png"   alt="vscode" width="70%" />
+<img src="https://cdn.jsdelivr.net/gh/dev24hrs/blog-img/blog/20240327151718.png"   alt="vscode" width="70%" />

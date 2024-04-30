@@ -8,20 +8,20 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "asang24 筆記",
+  title: "dev24hrs 筆記",
   // favicon: "img/coffee.png",
   favicon: "img/github.svg",
 
   // Set the production url of your site here
-  url: "https://asang24-blog.pages.dev",
+  url: "https://dev24hrs-blog.pages.dev",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "asang24", // Usually your GitHub org/user name.
-  projectName: "asang24-blog", // Usually your repo name.
+  organizationName: "dev24hrs", // Usually your GitHub org/user name.
+  projectName: "dev24hrs-blog", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -88,7 +88,7 @@ const config = {
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
-            href: "https://github.com/asang24",
+            href: "https://github.com/dev24hrs",
             label: "GitHub",
             position: "right",
           },
@@ -111,7 +111,7 @@ const config = {
             items: [
               {
                 label: "Github",
-                href: "https://github.com/asang24",
+                href: "https://github.com/dev24hrs",
               },
             ],
           },
@@ -129,7 +129,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} asang24 dev, Inc.`,
+        copyright: `Copyright © ${new Date().getFullYear()} dev24hrs dev, Inc.`,
       },
       prism: {
         theme: prismThemes.github,

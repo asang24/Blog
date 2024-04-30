@@ -150,13 +150,13 @@ for i := 0; i < lenth; i++ {
 		fmt.Printf("when index is: %v, new slice cap is :%v, len is : %v, slice is: %v \n", i, cap(n), len(n), n)
 }
 // n:=a[0:4]   when index is: 0, new slice cap is :4, len is :4, slice is: [2 3 5 7]
-// n:=a[1:4]   when index is: 1, new slice cap is :3, len is :3, slice is: [3 5 7] 
-// n:=a[2:4]   when index is: 2, new slice cap is :2, len is :2, slice is: [5 7] 
-// n:=a[3:4]   when index is: 3, new slice cap is :1, len is :1, slice is: [7] 
+// n:=a[1:4]   when index is: 1, new slice cap is :3, len is :3, slice is: [3 5 7]
+// n:=a[2:4]   when index is: 2, new slice cap is :2, len is :2, slice is: [5 7]
+// n:=a[3:4]   when index is: 3, new slice cap is :1, len is :1, slice is: [7]
 
 // n:=a[0:3]   when index is: 0, new slice cap is :4, len is :3, slice is: [2 3 5]
 // n:=a[1:3]   when index is: 1, new slice cap is :3, len is :2, slice is: [3 5]
-// n:=a[2:3]   when index is: 2, new slice cap is :2, len is :1, slice is: [5] 
+// n:=a[2:3]   when index is: 2, new slice cap is :2, len is :1, slice is: [5]
 // n:=a[3:3]   when index is: 3, new slice cap is :1, len is :0, slice is: []
 
 // 可以看出新的切片 n[first_i:last_i],其容量为原切片容量值 减 first_i
@@ -166,7 +166,7 @@ for i := 0; i < lenth; i++ {
 
 下图是 `x := []int{2,3,5,7,11}` 和 `y := x[1:3]` 两个切片对应的内存结构。
 
-<img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/go/202404111642800.png" alt="slice"  width="100%" />
+<img src="https://cdn.jsdelivr.net/gh/dev24hrs/blog-img/go/202404111642800.png" alt="slice"  width="100%" />
 
 ### 添加切片元素
 

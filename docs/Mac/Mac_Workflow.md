@@ -1,9 +1,12 @@
 ---
-description: personlal prefer settings on Mac.
-keywords: [git config, iterm2, homebrew, neovim, tmux, command tools]
+description: personal prefer settings on Mac.
+keywords:
+  [git, homebrew, nerdfonts, iterm2, starship, neovim, tmux, golang, rust]
 ---
 
 # [Mac] WorkFlow
+
+> This is a collection of configurations that includes all on my Mac.
 
 ## Clash
 
@@ -87,15 +90,13 @@ brew update
 
 ## Font
 
-some persional perfer nerd fonts [nerd fonts](https://www.nerdfonts.com/font-downloads)
+perfer nerd fonts [nerd fonts](https://www.nerdfonts.com/font-downloads)
 
 - [firacode](https://github.com/tonsky/FiraCode)
 
 - [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
 
-- [Recursive](https://www.recursive.design/) - prefer fonts
-
-  - nerd font type can be installed from [nerdfonts](https://www.nerdfonts.com/font-downloads)
+- [Recursive](https://www.recursive.design/) - prefer fonts, installed from [nerdfonts](https://www.nerdfonts.com/font-downloads)
 
   ```bash
   # https://github.com/ryanoasis/nerd-fonts#option-8-patch-your-own-font
@@ -109,27 +110,44 @@ some persional perfer nerd fonts [nerd fonts](https://www.nerdfonts.com/font-dow
 
 ## Iterm2
 
-Also can find in [my github](https://github.com/asang24/dotfiles)
+Also can find in [my github](https://github.com/dev24hrs/dotfiles/tree/main/iterm2)
 
 - [iterm2](https://iterm2.com/) - install iterm2
+
 - [color schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) - install color schemes
+
 - install font
+
   - [firacode](https://github.com/tonsky/FiraCode)
   - [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
-  - [Recursive](https://www.recursive.design/) - prefer fonts
-    - nerd font type can be installed from [nerdfonts](https://www.nerdfonts.com/font-downloads)
+  - [Recursive](https://www.recursive.design/) - prefer fonts, installed from [nerdfonts](https://www.nerdfonts.com/font-downloads)
+
 - import json file
-  - [iterm2.json](https://github.com/asang24/dotfiles/blob/main/iterm2/iterm2.json)
+
+  - [iterm2.json](https://github.com/dev24hrs/dotfiles/blob/main/iterm2/iterm2.json)
   - personal theme [gruvbox-material-iterm2](https://github.com/AmmarCodes/gruvbox-material-iterm2)
+
 - other useful settings
 
   - Appearance -> General -> Theme:Minimal & Tab bar:Bottom & Status bar:Top
+
   - Profiles
 
     - General -> Basic Colors:background:3e3d3d(rgb hex)
+
     - Text -> Font: RecMonoCasual Nerd Font 16
+
     - Window -> Transparency:2 & Backgroud Image:backgroud.jpeg & Blending:5
+
     - Keys -> set Report modifiers using CSI u -> not remove
+
+      > Setting for tmux, because of using `Ctrl+/` `Ctrl+,` `Ctrl+;` as keymap in neovim.
+
+  - Advanced
+
+    - set `Scroll wheel sends arrow keys when in alternate screen mode` to **Yes**
+
+      > no more scrolling up or down the entire screen in neovim/vim mode.
 
 ## starship
 
@@ -172,19 +190,15 @@ Also can find in [my github](https://github.com/asang24/dotfiles)
 - last directory
 
   ```bash
-    # add to ~/.zshrc
-    chpwd() {
-     # Save the current directory to a file
-     echo $PWD > ~/.last_directory
-    }
-    [ -f ~/.last_directory ] && cd $(cat ~/.last_directory)
+  # add to ~/.zshrc
+  chpwd() {
+   # Save the current directory to a file
+   echo $PWD > ~/.last_directory
+  }
+  [ -f ~/.last_directory ] && cd $(cat ~/.last_directory)
   ```
 
 ## Tmux
-
-ScreenShoot
-
-![image](https://github.com/asang24/dotfiles/blob/main/tmux-powerline/Screenshot.png)
 
 keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
 
@@ -204,7 +218,7 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
 |    `Ctrl`    |    j    |      select pane -D       |
 |   `prefix`   |    c    |        new window         |
 
-> config refer to [dotfiles](https://github.com/asang24/dotfiles/blob/main/tmux/tmux.conf)
+> config refer to [dotfiles](https://github.com/dev24hrs/dotfiles/blob/main/tmux/tmux.conf)
 
 - install `tmux`
 
@@ -224,7 +238,7 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
   set-option -g status on
   set-option -g status-interval 1
   set-option -g status-justify centre
-  set-option -g status-style "bg=#3a3a3a"
+  set-option -g status-style "bg=#3e3d3d"
 
   set-option -g status-left "[#S] "
   #set-option -g status-left "#[bg=#0087ff] ❐ #S "
@@ -237,7 +251,7 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
   set-option -g status-right-style default
 
   set -wg window-status-current-format " #I:#W#F "
-  set -wg window-status-current-style "fg=#cb231d,bg=#3a3a3a"
+  set -wg window-status-current-style "fg=#cb231d,bg=#3e3d3d"
   #set -wg window-status-current-style "bg=red" # red
   #set -wg window-status-last-style "fg=red"
   set -wg window-status-separator ""
@@ -264,10 +278,15 @@ keybindings refer to [tmux_cheatsheet](https://tmuxcheatsheet.com/)
 
 ## Golang
 
+### Setup
+
 ```bash
-# brew
+# brew install
 brew install go
-#pkg
+go version
+brew upgrade go
+
+# pkg install
 https://go.dev/dl/
 
 # set env
@@ -282,6 +301,12 @@ go env -w GOPATH=$HOME/Documents/Code/Path_Go
 # gofumpt
 go install mvdan.cc/gofumpt@latest
 ```
+
+### Books
+
+- Go 语言圣经 https://golang-china.github.io/gopl-zh/index.html
+- Go 语言设计与实现 https://draveness.me/golang/
+- Go 语言高级编程 https://chai2010.cn/advanced-go-programming-book/index.html
 
 ## Rust
 
@@ -301,67 +326,248 @@ cargo --version
 rustup update
 ```
 
-<!-- rustwiki-->[官方文档中文](https://rustwiki.org/)
+- 官方文档中文 https://rustwiki.org/
 
-<!-- Rust 程序设计语言 --> [中文版](https://rustwiki.org/zh-CN/book/)
+- Rust 程序设计语言 https://rustwiki.org/zh-CN/book/
 
-<!-- Rust 程序设计语言 --> [官方版](https://doc.rust-lang.org/book/ch01-01-installation.html)
+- Rust 程序设计语言 https://doc.rust-lang.org/book/ch01-01-installation.html
 
-<!-- Rust Cookbook 中文版 -->[Rust Cookbook 中文版](https://rustwiki.org/zh-CN/rust-cookbook/)
+- Rust Cookbook 中文版 https://rustwiki.org/zh-CN/rust-cookbook/
 
 ### Vscode settings
 
 Install extensions
 
--   [rust-analyzer](https://github.com/rust-lang/rust-analyzer) - Rust language support for Visual Studio Code
--   [Even Better TOML](https://github.com/tamasfe/taplo#readme) - TOML support()
--   [crates](https://github.com/serayuzgur/crates) - manage dependencies with Cargo.toml
+- [rust-analyzer](https://github.com/rust-lang/rust-analyzer) - Rust language support for Visual Studio Code
+- [Even Better TOML](https://github.com/tamasfe/taplo#readme) - TOML support()
+- [crates](https://github.com/serayuzgur/crates) - manage dependencies with Cargo.toml
 
 ### Neovim
 
 Requrie [mason.nvim](https://github.com/williamboman/mason.nvim) & [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim) & [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 
--   `MasonInstall taplo` - named Even Better TOML in vscode
+- `MasonInstall taplo` - named Even Better TOML in vscode
 
--   `MasonInstall rust_analyzer` - lsp servers
+- `MasonInstall rust_analyzer` - lsp servers
 
--   `TSInstall rust` & `TSInstall toml` - supported by `nvim-treesitter`
+- `TSInstall rust` & `TSInstall toml` - supported by `nvim-treesitter`
 
--   install [mrcjkb/rustaceanvim](https://github.com/mrcjkb/rustaceanvim) - powerful rust extension, out of box
+- install [mrcjkb/rustaceanvim](https://github.com/mrcjkb/rustaceanvim) - powerful rust extension, out of box
 
-    ```bash
-    {
-      'mrcjkb/rustaceanvim',
-      version = '^4', -- Recommended
-      ft = { 'rust' },
-    }
-    ```
+  ```bash
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^4', -- Recommended
+    ft = { 'rust' },
+  }
+  ```
 
--   install [crates.nvim](https://github.com/Saecki/crates.nvim) - managing crates.io dependencies
+- install [crates.nvim](https://github.com/Saecki/crates.nvim) - managing crates.io dependencies
 
-    ```bash
-    {
-        'saecki/crates.nvim',
-        event = { "BufRead Cargo.toml" },
-        config = function()
-            require('crates').setup()
-        end,
-    }
-    ```
+  ```bash
+  {
+      'saecki/crates.nvim',
+      event = { "BufRead Cargo.toml" },
+      config = function()
+          require('crates').setup()
+      end,
+  }
+  ```
 
 ### Awesome Rust
 
--   [awesome rust](https://github.com/rust-unofficial/awesome-rust)
+- awesome rust https://github.com/rust-unofficial/awesome-rust
 
--   [Rust嵌入式](https://github.com/rust-embedded/awesome-embedded-rust)
-
-
+- Rust 嵌入式 https://github.com/rust-embedded/awesome-embedded-rust
 
 ## Neovim
 
+### Itroduction
 
+This repo hosts my Nvim configuration for macOS, `init.lua` is the config entry point for terminal Neovim.
+It's a simple but satisfying configuration for me, with `lua bash json yaml sql markdown golang rust` yet.
+Always update and keep it more usefully.
 
+<img src="https://cdn.jsdelivr.net/gh/dev24hrs/blog-img/go/202404151334838.png" alt="dashboard" />
 
+<img src="https://cdn.jsdelivr.net/gh/dev24hrs/blog-img/go/202404151335169.png" alt="telescope" />
+
+<img src="https://cdn.jsdelivr.net/gh/dev24hrs/blog-img/go/202404151337040.png" alt="outline" />
+
+### Feautures
+
+```bash
+~/.config/nvim
+❯ tree .
+.
+├── README.md
+├── cd-project.nvim.json
+├── init.lua
+├── lazy-lock.json
+├── lua
+│   ├── core
+│   │   ├── basic.lua
+│   │   ├── keymap.lua
+│   │   └── lazy.lua
+│   └── plugins
+│       ├── languages
+│       │   ├── n-golang.lua
+│       │   ├── n-neotest.lua
+│       │   └── n-rust.lua
+│       ├── lspconfig
+│       │   ├── n-cmp.lua
+│       │   ├── n-fidget.lua
+│       │   ├── n-lspconfig.lua
+│       │   └── n-mason.lua
+│       ├── n-autopairs.lua
+│       ├── n-codeium.lua
+│       ├── n-colorizer.lua
+│       ├── n-comment.lua
+│       ├── n-conform.lua
+│       ├── n-dashboard.lua
+│       ├── n-diffview.lua
+│       ├── n-flash.lua
+│       ├── n-gitsigns.lua
+│       ├── n-hlslens.lua
+│       ├── n-indent.lua
+│       ├── n-lint.lua
+│       ├── n-lualine.lua
+│       ├── n-markdown.lua
+│       ├── n-noice.lua
+│       ├── n-project.lua
+│       ├── n-replace.lua
+│       ├── n-telescope.lua
+│       ├── n-theme.lua
+│       ├── n-toggleterm.lua
+│       ├── n-tree.lua
+│       └── n-treesitter.lua
+└── stylua.toml
+```
+
+- [lazy.nvim](https://github.com/folke/lazy.nvim) - Plugin management
+
+- [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) - Color scheme
+
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - LSP and completion
+
+- [mason.nvim](https://github.com/williamboman/mason.nvim) - Mason plugin
+
+  ```bash
+  # if cant install some lsp or formatter e.g u should set npm config set strict-ssl false
+  npm config set strict-ssl false
+  ```
+
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) - Auto-completion
+
+- [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) - Snippets
+
+- [luasnip](https://github.com/L3MON4D3/LuaSnip) - Snippets
+
+- [nvim-tree.nvim](https://github.com/nvim-tree/nvim-tree.lua) - File explorer
+
+- [nvim-lualine](https://github.com/nvim-lualine/lualine.nvim) - Statusline
+
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) - Fuzzy finder
+
+- [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) - Terminal
+
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) - Git
+
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Code highlighting
+
+- [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) - Markdown
+
+- [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim) - Dashboard
+
+- [conform.nvim](https://github.com/stevearc/conform.nvim) - Code format
+
+- [nvim-autopairs](https://github.com/windwp/nvim-autopairs) - Auto-pair
+
+- [Comment.nvim](https://github.com/numToStr/Comment.nvim) - Comment
+
+- [diffview.nvim](https://github.com/sindrets/diffview.nvim) - Diffview
+
+- [mini indentscope](https://github.com/echasnovski/mini.indentscope) - Indent scope
+
+- ~~[Navigator.nvim](https://github.com/numToStr/Navigator.nvim) - Navigator~~
+
+- ~~[scrollbar](https://github.com/petertriho/nvim-scrollbar) - Scroball~~
+
+- [nvim-lint](https://github.com/mfussenegger/nvim-lint) - Linter plugin
+
+- [noice.nvim](https://github.com/folke/noice.nvim) - UI plugin for `messages`, `cmdline` and the `popupmenu`
+
+- [cd-project.nvim](https://github.com/LintaoAmons/cd-project.nvim) - `Project Management` plugins
+
+- [search-replace.nvim](https://github.com/roobert/search-replace.nvim) - search and replace
+
+- [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens) - Hlsearch
+
+- [flash](https://github.com/folke/flash.nvim) - enhanced search
+
+- [go.nvim](https://github.com/ray-x/go.nvim) - Go plugin
+
+- [rustaceanvim](https://github.com/mrcjkb/rustaceanvim) - Supercharge your Rust experience
+
+- [crates.nvim](https://github.com/Saecki/crates.nvim) - managing crates.io dependencies
+
+- [Codeium](https://github.com/Exafunction/codeium.vim) - Codeium autocompletes
+
+### Requirements
+
+- Neovim 0.9+
+
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+
+- [jsregexp](https://github.com/kmarius/jsregexp)
+
+- [luarocks](https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-macOS)
+
+  ```bash
+  #  for luasnip
+  brew install luarocks
+  luarocks install jsregexp
+  ```
+
+- [Recursive](https://www.recursive.design/) - prefer fonts, installed from [nerdfonts](https://www.nerdfonts.com/font-downloads)
+
+### Recommended
+
+Also can find in [my github](https://github.com/dev24hrs/dotfiles/tree/main/iterm2)
+
+- [iterm2](https://iterm2.com/) - install iterm2
+
+- [color schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) - install color schemes
+
+- install font
+
+  - [firacode](https://github.com/tonsky/FiraCode)
+  - [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
+  - [Recursive](https://www.recursive.design/) - prefer fonts, installed from [nerdfonts](https://www.nerdfonts.com/font-downloads)
+
+- import json file
+
+  - [iterm2.json](https://github.com/dev24hrs/dotfiles/blob/main/iterm2)
+  - personal theme [gruvbox-material-iterm2](https://github.com/AmmarCodes/gruvbox-material-iterm2)
+
+- other useful settings
+
+  - Appearance -> General -> Theme:Minimal & Tab bar:Bottom & Status bar:Top
+
+  - Profiles
+
+    - General -> Basic Colors:background:3e3d3d(rgb hex)
+    - Text -> Font: RecMonoCasual Nerd Font 16
+    - Window -> Transparency:2 & Backgroud Image:backgroud.jpeg & Blending:5
+    - Keys -> set Report modifiers using CSI u -> not remove
+
+      > Setting for tmux, because of using `Ctrl+/` `Ctrl+,` `Ctrl+;` as keymap in neovim.
+
+  - Advanced
+
+    - set `Scroll wheel sends arrow keys when in alternate screen mode` to **Yes**
+
+      > no more scrolling up or down the entire screen in neovim/vim mode.
 
 ## VsCode
 
@@ -541,7 +747,7 @@ Requrie [mason.nvim](https://github.com/williamboman/mason.nvim) & [mason-lspcon
   ```bash
   # press cmd+shift+p in vscode and select
   # go Install/Update Tolls
-  
+
   # install gofumpt
   go install mvdan.cc/gofumpt@latest
   ```
@@ -609,7 +815,7 @@ Other commons settings ,excluding the above plugins configurations
   // explorer
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "explorer.compactFolders": true,
+  "explorer.compactFolders": false,
   "explorer.incrementalNaming": "smart",
   // editor
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -723,13 +929,11 @@ all keybindings settings in vscode
 ]
 ```
 
-
-
-## Prefer command tools
+## Command tools
 
 refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
 
-- [bat](https://github.com/sharkdp/bat) -- cat clone with syntax highlighting and Git integration
+- [bat](https://github.com/sharkdp/bat) - cat clone with syntax highlighting and Git integration
 
   ```bash
   brew install bat
@@ -746,33 +950,33 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
 - [delta](https://github.com/dandavison/delta) -- git diff
 
   ```bash
-   # Install
-      brew install git-delta
-      # config
-      # add this to ~/.gitconfig
-      [core]
-          pager = delta
-      [interactive]
-          diffFilter = delta --color-only
-      [delta]
-          syntax-theme = gruvbox-dark
-          # this config auto set line-numbers=true
-          side-by-side = true
-      [merge]
-          conflictstyle = diff3
-      # Using Delta with tmux add to tmux.conf
-      # set -ga terminal-overrides ",xterm-256color:Tc"-
+  # Install
+  brew install git-delta
+  # config
+  # add this to ~/.gitconfig
+  [core]
+      pager = delta
+  [interactive]
+      diffFilter = delta --color-only
+  [delta]
+      syntax-theme = gruvbox-dark
+      # this config auto set line-numbers=true
+      side-by-side = true
+  [merge]
+      conflictstyle = diff3
+  # Using Delta with tmux add to tmux.conf
+  # set -ga terminal-overrides ",xterm-256color:Tc"-
   ```
 
-- [fd](https://github.com/sharkdp/fd) -- a simple, fast and user-friendly alternative to 'find'
+- [fd](https://github.com/sharkdp/fd) - a simple, fast and user-friendly alternative to 'find'
 
   ```bash
   brew install fd
   ```
 
-- [fzf](https://github.com/junegunn/fzf) -- command-line fuzzy finder
+- [fzf](https://github.com/junegunn/fzf) - command-line fuzzy finder
 
-- [fzf-tab](https://github.com/Aloxaf/fzf-tab) -- completion selection menu with fzf
+- [fzf-tab](https://github.com/Aloxaf/fzf-tab) - completion selection menu with fzf
 
   ```bash
   brew install fzf
@@ -792,7 +996,7 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
   brew install ripgrep
   ```
 
-- [bottom](https://github.com/ClementTsang/bottom) -- process/system monitor
+- [bottom](https://github.com/ClementTsang/bottom) - process/system monitor
 
   ```bash
   brew install bottom
@@ -800,7 +1004,7 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
   btm
   ```
 
-- [lsd](https://github.com/lsd-rs/lsd) -- ls command
+- [lsd](https://github.com/lsd-rs/lsd) - ls command
 
   ```bash
   brew install lsd
@@ -811,7 +1015,7 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
   alias lt='ls --tree'
   ```
 
-- [cheat.sh](https://github.com/chubin/cheat.sh) -- command line cheat sheet
+- [cheat.sh](https://github.com/chubin/cheat.sh) - command line cheat sheet
 
   ```bash
   mkdir -p $HOME/Documents/Tools/Cheat/bin
@@ -830,11 +1034,17 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
   cht.sh --shell [LANG]
   ```
 
-- vimrc -- config vim
+- [httpie](https://github.com/httpie/cli) - command-line HTTP client
+
+  ```bash
+  # use  https://httpie.io/docs/cli/redirected-input
+  ```
+
+- vimrc - config vim
 
   ```bash
   vim ~/.vimrc
-  
+
   set clipboard=unnamed
   set nocompatible
   set backspace=eol,start,indent
@@ -864,7 +1074,7 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
   set noswapfile
   ```
 
-## Prefer apps
+## Apps
 
 - [AlDente](https://apphousekitchen.com/) -- charge limiter app
 
@@ -930,4 +1140,4 @@ refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
   "picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
   ```
 
-  If use typora & picgo app, when u pasted images in typora,it will cached images in the path`$home/Library/Application Support/typora-user-images$`,so u need clean it.
+  If use typora & picgo app, when u pasted images in typora,it will cached images in the path`$home/Library/Application Support/typora-user-images`,so u need clean it.
