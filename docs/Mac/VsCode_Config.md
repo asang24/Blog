@@ -5,19 +5,17 @@ keywords: [git config, iterm2, homebrew, neovim, tmux, command tools]
 
 # [VsCode] Config
 
-##  Settings
+## Plugins
 
-### Plugins
-
-#### Common plugins
+### Common plugins
 
 - `Everforest` -- theme
 
-  ```json
-  "workbench.colorTheme": "Everforest Dark",
-  "everforest.italicKeywords": true,
-  "everforest.italicComments": true,
-  ```
+    ```json
+    "workbench.colorTheme": "Everforest Dark",
+    "everforest.italicKeywords": true,
+    "everforest.italicComments": true,
+    ```
 
 - `Code Runner` -- run code
 
@@ -27,63 +25,63 @@ keywords: [git config, iterm2, homebrew, neovim, tmux, command tools]
 
 - `Material Icon Theme`
 
-  ```json
-  "workbench.iconTheme": "material-icon-theme",
-  ```
+    ```json
+    "workbench.iconTheme": "material-icon-theme",
+    ```
 
 - `Project Manager`
 
-  ```json
-  // settings.json
-  "projectManager.git.baseFolders": ["$home/Documents/Code/"],
-  "projectManager.sortList": "Recent",
-
-  // keybindings.json
-  {
-  "command": "projectManager.listGitProjects#sideBarGit",
-  "key": "cmd+o"
-  }
-  ```
+    ```json
+    // settings.json
+    "projectManager.git.baseFolders": ["$home/Documents/Code/"],
+    "projectManager.sortList": "Recent",
+    
+    // keybindings.json
+    {
+    "command": "projectManager.listGitProjects#sideBarGit",
+    "key": "cmd+o"
+    }
+    ```
 
 - `YAML` -- YAML Language Suppor
 
-  ```json
-  "[yaml]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml",
-    "editor.formatOnSave": true
-  },
-  "yaml.format.enable": true,
-  "yaml.completion": true,
-  ```
+    ```json
+    "[yaml]": {
+      "editor.defaultFormatter": "redhat.vscode-yaml",
+      "editor.formatOnSave": true
+    },
+    "yaml.format.enable": true,
+    "yaml.completion": true,
+    ```
 
 - `Prettier` -- Formatter
 
 - `picgo` -- upload images
 
-  > if u forget your GitHub tokens, u cant find it in the blew file `data.json`
+    > if u forget your GitHub tokens, u cant find it in the blew file `data.json`
 
-  ```json
-  // picgo
-  // the data.json saved all the uploaded imgs info
-  "picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
-  "picgo.picBed.current": "github",
-  "picgo.picBed.github.repo": "<your name>/<repo>",
-  "picgo.picBed.github.branch": "main",
-  "picgo.picBed.github.path": "<fold>/",
-  "picgo.picBed.github.customUrl": "https://cdn.jsdelivr.net/gh/<your name>/<repo>",
-  "picgo.picBed.github.token": "<your token>",
-  ```
+    ```json
+    // picgo
+    // the data.json saved all the uploaded imgs info
+    "picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
+    "picgo.picBed.current": "github",
+    "picgo.picBed.github.repo": "<your name>/<repo>",
+    "picgo.picBed.github.branch": "main",
+    "picgo.picBed.github.path": "<fold>/",
+    "picgo.picBed.github.customUrl": "https://cdn.jsdelivr.net/gh/<your name>/<repo>",
+    "picgo.picBed.github.token": "<your token>",
+    ```
 
 - `Markdown All in One` -- Markdown Support
 
-  ```json
-  "markdown.preview.fontFamily": "RecMonoCasual Nerd Font",
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
-  },
-  ```
+    ```json
+    "markdown.preview.fontFamily": "RecMonoCasual Nerd Font",
+    "[markdown]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true,
+      "editor.formatOnPaste": true
+    },
+    ```
 
 - `IntelliCode` -- AI assisted development
 
@@ -91,136 +89,140 @@ keywords: [git config, iterm2, homebrew, neovim, tmux, command tools]
 
 - `Vim`
 
-  ```json
-  // vim
-  "vim.easymotion": true,
-  "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": true,
-  "vim.hlsearch": true,
-  "vim.foldfix": true,
-  "vim.leader": "<space>",
-  // To improve performance
-  "extensions.experimental.affinity": {
-    "vscodevim.vim": 1
-  },
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": ["p"],
-      "after": ["p", "g", "v", "y"]
+    ```json
+    // vim
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.foldfix": true,
+    "vim.leader": "<space>",
+    // To improve performance
+    "extensions.experimental.affinity": {
+      "vscodevim.vim": 1
     },
-    {
-      "before": [">"],
-      "commands": ["editor.action.indentLines"]
+    "vim.visualModeKeyBindingsNonRecursive": [
+      {
+        "before": ["p"],
+        "after": ["p", "g", "v", "y"]
+      },
+      {
+        "before": [">"],
+        "commands": ["editor.action.indentLines"]
+      },
+      {
+        "before": ["<"],
+        "commands": ["editor.action.outdentLines"]
+      }
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+      { "before": ["<C-h>"], "after": ["<Left>"] },
+      { "before": ["<C-j>"], "after": ["<Down>"] },
+      { "before": ["<C-k>"], "after": ["<Up>"] },
+      { "before": ["<C-l>"], "after": ["<Right>"] }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": ["<leader>nh"],
+        "commands": [":nohl"]
+      },
+      {
+        "before": ["leader", "r"],
+        "commands": ["editor.action.rename"]
+      },
+      {
+        "before": ["leader", "w"],
+        "commands": [":w"]
+      },
+      {
+        "before": ["<leader>", "c", "a"],
+        "commands": ["editor.action.quickFix"]
+      },
+      {
+        "after": ["^"],
+        "before": ["H"]
+      },
+      {
+        "after": ["$"],
+        "before": ["L"]
+      },
+      {
+        "before": ["]", "d"],
+        "commands": ["editor.action.diagnostic.prev"]
+      },
+      {
+        "before": ["[", "d"],
+        "commands": ["editor.action.diagnostic.next"]
+      },
+      {
+        "before": ["g", "r"],
+        "commands": ["editor.action.referenceSearch.trigger"]
+      },
+      {
+        "before": ["g", "i"],
+        "commands": ["editor.action.peekImplementation"]
+      },
+      {
+        "before": ["g", "p"],
+        "commands": ["editor.action.peekDefinition"]
+      }
+    ],
+    "vim.handleKeys": {
+      "<C-a>": false,
+      "<C-f>": false
     },
-    {
-      "before": ["<"],
-      "commands": ["editor.action.outdentLines"]
-    }
-  ],
-  "vim.insertModeKeyBindingsNonRecursive": [
-    { "before": ["<C-h>"], "after": ["<Left>"] },
-    { "before": ["<C-j>"], "after": ["<Down>"] },
-    { "before": ["<C-k>"], "after": ["<Up>"] },
-    { "before": ["<C-l>"], "after": ["<Right>"] }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<leader>nh"],
-      "commands": [":nohl"]
-    },
-    {
-      "before": ["leader", "r"],
-      "commands": ["editor.action.rename"]
-    },
-    {
-      "before": ["leader", "w"],
-      "commands": [":w"]
-    },
-    {
-      "before": ["<leader>", "c", "a"],
-      "commands": ["editor.action.quickFix"]
-    },
-    {
-      "after": ["^"],
-      "before": ["H"]
-    },
-    {
-      "after": ["$"],
-      "before": ["L"]
-    },
-    {
-      "before": ["]", "d"],
-      "commands": ["editor.action.diagnostic.prev"]
-    },
-    {
-      "before": ["[", "d"],
-      "commands": ["editor.action.diagnostic.next"]
-    },
-    {
-      "before": ["g", "r"],
-      "commands": ["editor.action.referenceSearch.trigger"]
-    },
-    {
-      "before": ["g", "i"],
-      "commands": ["editor.action.peekImplementation"]
-    },
-    {
-      "before": ["g", "p"],
-      "commands": ["editor.action.peekDefinition"]
-    }
-  ],
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
-  },
-  ```
+    ```
 
-#### Golang plugins
+### Golang plugins
 
 - `Go`
 
-  ```bash
-  # press cmd+shift+p in vscode and select
-  # go Install/Update Tolls
-  
-  # install gofumpt
-  go install mvdan.cc/gofumpt@latest
-  ```
+    ```bash
+    # press cmd+shift+p in vscode and select
+    # go Install/Update Tolls
+    
+    # install gofumpt
+    go install mvdan.cc/gofumpt@latest
+    ```
 
-  ```json
-  // golang
-  "[go]": {
-    "editor.defaultFormatter": "golang.go",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit",
-      "source.fixAll": "explicit"
-    }
-  },
-  "go.formatTool": "gofumpt",
-  "go.lintTool": "golangci-lint",
-  "go.lintFlags": ["--fast"],
-  "gopls": {
-    "formatting.gofumpt": true,
-    "ui.completion.usePlaceholders": true,
-    "ui.semanticTokens": true,
-    "ui.diagnostic.analyses": {
-      "unusedvariable": true,
-      "unusedwrite": true
-    }
-  },
-  ```
+    ```json
+    // golang
+    "[go]": {
+      "editor.defaultFormatter": "golang.go",
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit",
+        "source.fixAll": "explicit"
+      }
+    },
+    "go.formatTool": "gofumpt",
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": ["--fast"],
+    "go.toolsManagement.autoUpdate": true,
+    "go.inlayHints.constantValues": true,
+    "go.inlayHints.parameterNames": true,
+    "gopls": {
+      "formatting.gofumpt": true,
+      "ui.completion.usePlaceholders": true,
+      "ui.semanticTokens": true,
+      "ui.diagnostic.analyses": {
+        "unusedvariable": true,
+        "unusedwrite": true,
+        "unusedwrite": true
+      }
+    },
+    ```
 
-#### Rust plugins
+### Rust plugins
 
-- `rust-analyzer`
-- `Even Better TOML`
-- `crates`
+- [rust-analyzer](https://github.com/rust-lang/rust-analyzer) - Rust language support for Visual Studio Code
+- [Even Better TOML](https://github.com/tamasfe/taplo#readme) - TOML support()
+- [crates](https://github.com/serayuzgur/crates) - manage dependencies with Cargo.toml
 
-### Settings
+## Settings
 
-Other commons settings ,excluding the above plugins configurations
+Other commons settings ,excluding Go/Rust plugins configurations
 
 ```json
 {
@@ -251,7 +253,7 @@ Other commons settings ,excluding the above plugins configurations
   // explorer
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "explorer.compactFolders": true,
+  "explorer.compactFolders": false,
   "explorer.incrementalNaming": "smart",
   // editor
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -364,3 +366,4 @@ all keybindings settings in vscode
   }
 ]
 ```
+

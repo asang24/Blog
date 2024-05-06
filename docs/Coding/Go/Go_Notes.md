@@ -5,11 +5,9 @@ keywords: [go,golang]
 
 # [Golang] 学习笔记
 
-go语言圣经	https://golang-china.github.io/gopl-zh/index.html
-
-go语言设计与实现	https://draveness.me/golang/
-
-go语言高级编程	https://chai2010.cn/advanced-go-programming-book/index.html
+-   Go语言圣经 https://golang-china.github.io/gopl-zh/index.html
+-   Go语言设计与实现 https://draveness.me/golang/
+-   Go语言高级编程 https://chai2010.cn/advanced-go-programming-book/index.html
 
 
 
@@ -27,21 +25,21 @@ go语言高级编程	https://chai2010.cn/advanced-go-programming-book/index.html
 变量、指针和地址三者的关系是，每个变量都拥有地址，指针的值就是地址。
 
 ```go
-str := "hello world"
+	str := "hello world"
 
-// 对字符串取地址, ptr类型为*string
-ptr := &str															// ptr为指针变量
-fmt.Printf("ptr typr is : %T\n ", ptr)  // ptr typr is : *string
+	// 对字符串取地址, ptr类型为*string
+	ptr := &str															// ptr为指针变量
+	fmt.Printf("ptr typr is : %T\n ", ptr)  // ptr typr is : *string
 
-// 打印ptr的指针地址
-fmt.Printf("address: %p\n", ptr) 				// address: 0x14000112020
+	// 打印ptr的指针地址
+	fmt.Printf("address: %p\n", ptr) 				// address: 0x14000112020
 
-// 对指针进行取值操作
-value := *ptr
-fmt.Printf("value type: %T\n", value) // value type: string
+	// 对指针进行取值操作
+	value := *ptr
+	fmt.Printf("value type: %T\n", value) // value type: string
 
-// 指针取值后就是指向变量的值
-fmt.Printf("value: %s\n", value) // value: hello world
+	// 指针取值后就是指向变量的值
+	fmt.Printf("value: %s\n", value) // value: hello world
 ```
 
 变量、指针地址、指针变量、取地址、取值的相互关系和特性如下：
@@ -59,7 +57,59 @@ fmt.Println(*p)               // 取值操作 "1"
 fmt.Println(x)                // "2"
 ```
 
-## defer
+
+
+## 函数、闭包、递归
+
+### 匿名函数
+
+```go
+// 具名函数
+func Add(a, b int) int {
+    return a+b
+}
+
+// 匿名函数
+var Add = func(a, b int) int {
+    return a+b
+}
+```
+
+匿名函数可`赋值给变量`，做为`结构字段`，或者在` channel` 里传送
+
+```go
+package main
+
+func main() {
+    // --- function variable ---
+    fn := func() { println("Hello, World!") }
+    fn()
+  
+    // --- function collection ---
+    fns := [](func(x int) int){
+        func(x int) int { return x + 1 },
+        func(x int) int { return x + 2 },
+    }
+    println(fns[0](100))
+
+    // --- function as field ---
+    d := struct {
+        fn func() string
+    }{
+        fn: func() string { return "Hello, World!" },
+    }
+    println(d.fn())
+
+    // --- channel of function ---
+    fc := make(chan func() string, 2)
+    fc <- func() string { return "Hello, World!" }
+    println((<-fc)())
+}
+```
+
+
+
+### defer
 
 defer语句被用于预定对一个函数的调用。可以把这类被defer语句调用的函数称为延迟函数。
 
@@ -70,6 +120,54 @@ defer语句被用于预定对一个函数的调用。可以把这类被defer语�
 -   输出日志
 
 如果一个函数中有多个defer语句，它们会以**LIFO（后进先出）**的顺序执行。
+
+```go
+func Inc() (v int) {
+    defer func(){ v++ } ()
+    return 42
+}
+```
+
+`defer` 语句延迟执行了一个匿名函数，因为这个匿名函数捕获了外部函数的局部变量 `v`，这种函数我们一般叫**闭包**。闭包对捕获的外部变量并不是传值方式访问，而是以引用的方式访问。**闭包复制的是原对象指针，这就很容易解释延迟引用现象**
+
+```go
+func main() {
+    for i := 0; i < 3; i++ {
+        defer func(){ println(i) } ()
+    }
+}
+// Output:
+// 3
+// 3
+// 3
+```
+
+因为是闭包，在 `for` 迭代语句中，每个 `defer` 语句延迟执行的函数引用的都是同一个 `i` 迭代变量，在循环结束后这个变量的值为 3，因此最终输出的都是3。
+
+```go
+// 修复
+func main() {
+    for i := 0; i < 3; i++ {
+        i := i // 定义一个循环体内局部变量 i
+        defer func(){ println(i) } ()
+    }
+}
+func main() {
+    for i := 0; i < 3; i++ {
+        // 通过函数传入 i
+        // defer 语句会马上对调用参数求值
+        defer func(i int){ println(i) } (i)
+    }
+}
+```
+
+>   一般来说,在 `for` 循环内部执行 `defer` 语句并不是一个好的习惯
+
+### 闭包Closure
+
+
+
+
 
 
 
@@ -150,13 +248,13 @@ for i := 0; i < lenth; i++ {
 		fmt.Printf("when index is: %v, new slice cap is :%v, len is : %v, slice is: %v \n", i, cap(n), len(n), n)
 }
 // n:=a[0:4]   when index is: 0, new slice cap is :4, len is :4, slice is: [2 3 5 7]
-// n:=a[1:4]   when index is: 1, new slice cap is :3, len is :3, slice is: [3 5 7]
-// n:=a[2:4]   when index is: 2, new slice cap is :2, len is :2, slice is: [5 7]
-// n:=a[3:4]   when index is: 3, new slice cap is :1, len is :1, slice is: [7]
+// n:=a[1:4]   when index is: 1, new slice cap is :3, len is :3, slice is: [3 5 7] 
+// n:=a[2:4]   when index is: 2, new slice cap is :2, len is :2, slice is: [5 7] 
+// n:=a[3:4]   when index is: 3, new slice cap is :1, len is :1, slice is: [7] 
 
 // n:=a[0:3]   when index is: 0, new slice cap is :4, len is :3, slice is: [2 3 5]
 // n:=a[1:3]   when index is: 1, new slice cap is :3, len is :2, slice is: [3 5]
-// n:=a[2:3]   when index is: 2, new slice cap is :2, len is :1, slice is: [5]
+// n:=a[2:3]   when index is: 2, new slice cap is :2, len is :1, slice is: [5] 
 // n:=a[3:3]   when index is: 3, new slice cap is :1, len is :0, slice is: []
 
 // 可以看出新的切片 n[first_i:last_i],其容量为原切片容量值 减 first_i
@@ -166,7 +264,7 @@ for i := 0; i < lenth; i++ {
 
 下图是 `x := []int{2,3,5,7,11}` 和 `y := x[1:3]` 两个切片对应的内存结构。
 
-<img src="https://cdn.jsdelivr.net/gh/dev24hrs/blog-img/go/202404111642800.png" alt="slice"  width="100%" />
+<img src="https://cdn.jsdelivr.net/gh/asang24/blog-img/go/202404111642800.png" alt="slice"  width="100%" />
 
 ### 添加切片元素
 
@@ -246,3 +344,17 @@ a = a[:len(a)-1]  // 从切片删除最后一个元素
 ```
 
 当然，如果切片存在的周期很短的话，可以不用刻意处理这个问题。因为如果切片本身已经可以被 GC 回收的话，切片对应的每个元素自然也就是可以被回收的了。
+
+
+
+## gotests 使用
+
+```go
+$ go get -u github.com/cweill/gotests/...
+
+// add gopath/bin to zshrc
+// in path: Project_Go/ollama-gin/config 
+gotests -all -w config.go 
+// will generate all test func in new file named config_test.go
+```
+

@@ -66,6 +66,7 @@ in typora/vscode or other apps, u can use `<img src="" style="zoom:50%" />` to s
     ```
 
 - **prefer** (this can be used in all `docusaurus & typora & vscode`)
+  
   ```html
   <img src="" alt="" width="70%" />
   ```
