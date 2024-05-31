@@ -287,7 +287,6 @@ brew upgrade go
 https://go.dev/dl/
 
 # set env
-mkdir -p $HOME/Documents/Code/Project_Go/src
 mkdir -p $HOME/Documents/Code/Project_Go/pkg
 mkdir -p $HOME/Documents/Code/Project_Go/bin
 
@@ -349,7 +348,7 @@ config refer to [vscode dotfiles](https://github.com/dev24hrs/dotfiles/tree/main
 
 
 
-## Command tools
+## CLI Tools
 
 refer to [Modern Unix](https://github.com/ibraheemdev/modern-unix)
 
@@ -392,30 +391,63 @@ brew install git-delta
 # set -ga terminal-overrides ",xterm-256color:Tc"-
 ```
 
-### [fd](https://github.com/sharkdp/fd) - a simple, fast and user-friendly alternative to 'find'
+### [fd](https://github.com/sharkdp/fd) 
+
+a simple, fast and user-friendly alternative to 'find'
 
 ```bash
 brew install fd
 ```
 
-### [fzf](https://github.com/junegunn/fzf) 
+### [fzf](https://github.com/junegunn/fzf)
 
 command-line fuzzy finder
 
-### [fzf-tab](https://github.com/Aloxaf/fzf-tab) 
+```bash
+# add to ~/.zshrc
+
+# fzf config
+eval "$(fzf --zsh)"
+# use ~~ as the trigger sequence instead of the default **
+export FZF_COMPLETION_TRIGGER='~~'
+export FZF_DEFAULT_OPTS='--height 50% --layout=reverse'
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+show_file_or_dir_preview="if [ -d {} ];then tree -C {} | head -200;else bat -n --color=always {}; fi"
+export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
+
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
+}
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'tree -C {} | head -200'   "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview 'bat -n --color=always {}' "$@" ;;
+  esac
+}
+
+# source
+source ~/.zshrc
+```
+
+### [fzf-git](https://github.com/junegunn/fzf-git.sh)
 
 completion selection menu with fzf
 
 ```bash
-brew install fzf
-# config
-
-# fzf
-eval "$(fzf --zsh)"
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
-
-git clone https://github.com/Aloxaf/fzf-tab ~/.zsh
-source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
+cd ~/.zsh
+git clone git@github.com:junegunn/fzf-git.sh.git
+# add to ~/.zshrc
+source ~/.zsh/fzf-git.sh/fzf-git.sh
 ```
 
 ### [ripgrep](https://github.com/BurntSushi/ripgrep)
@@ -424,7 +456,9 @@ source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
 brew install ripgrep
 ```
 
-### [bottom](https://github.com/ClementTsang/bottom) - process/system monitor
+### [bottom](https://github.com/ClementTsang/bottom) 
+
+process/system monitor
 
 ```bash
 brew install bottom
@@ -440,7 +474,7 @@ btm
 brew install lsd
 
 # add to ~/.zshrc
-alias ls='lsd'cat
+alias ls='lsd'
 alias la='ls -la'
 alias lt='ls --tree'
 ```
