@@ -25,21 +25,21 @@ keywords: [go,golang]
 变量、指针和地址三者的关系是，每个变量都拥有地址，指针的值就是地址。
 
 ```go
-	str := "hello world"
+str := "hello world"
 
-	// 对字符串取地址, ptr类型为*string
-	ptr := &str															// ptr为指针变量
-	fmt.Printf("ptr typr is : %T\n ", ptr)  // ptr typr is : *string
+// 对字符串取地址, ptr类型为*string
+ptr := &str	// ptr为指针变量
+fmt.Printf("ptr typr is : %T\n ", ptr)  // ptr typr is : *string
 
-	// 打印ptr的指针地址
-	fmt.Printf("address: %p\n", ptr) 				// address: 0x14000112020
+// 打印ptr的指针地址
+fmt.Printf("address: %p\n", ptr) // address: 0x14000112020
 
-	// 对指针进行取值操作
-	value := *ptr
-	fmt.Printf("value type: %T\n", value) // value type: string
+// 对指针进行取值操作
+value := *ptr
+fmt.Printf("value type: %T\n", value) // value type: string
 
-	// 指针取值后就是指向变量的值
-	fmt.Printf("value: %s\n", value) // value: hello world
+// 指针取值后就是指向变量的值
+fmt.Printf("value: %s\n", value) // value: hello world
 ```
 
 变量、指针地址、指针变量、取地址、取值的相互关系和特性如下：
@@ -209,7 +209,7 @@ func main() {
 
 ### 闭包Closure
 
-
+TODO
 
 
 
@@ -504,7 +504,7 @@ fmt.Println(slice)
 
 ## 结构体
 
-Todo
+TODO
 
 
 

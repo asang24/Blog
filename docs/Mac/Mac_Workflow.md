@@ -13,8 +13,6 @@ keywords:
 - Cloud service [flower](https://flower.yt/cart.php)
 - install & config [clash](https://help.huacloud.dev)
 
-
-
 ## Enhance terminal
 
 ```bash
@@ -22,48 +20,47 @@ keywords:
 #  Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1  # 默认值 2，设置成 1 合适，设置成 0 就太快了
+# 默认值 2，设置成 1 合适，设置成 0 就太快了
+defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 ```
-
-
 
 ## Git Config
 
 - refer to [new SSH key](https://docs.github.com/zh/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-  ```bash
-  git config --global user.email "xxx@foxmail.com"
-  git config --global user.name "xxx"
-
-  # ssh-key
-  brew install openssh
-  ssh-keygen -t ed25519 -C "your_email@example.com"
-
-  touch ~/.ssh/config
-
-  # add
-  Host github.com
-    AddKeysToAgent yes
-    IdentityFile ~/.ssh/id_ed25519
-
-  ssh-add ~/.ssh/id_ed25519
-
-  pbcopy < ~/.ssh/id_ed25519.pub
-  # then add to your github settings->ssh key
-
-  # set proxy
-  git config --global http.proxy 127.0.0.1:7890
-  git config --global https.proxy 127.0.0.1:7890
-
-  #unset
-  git config --global --unset http.proxy
-  git config --global --unset https.proxy
-
-  # pretty git log
-  # add to ~/.zshrc
-  alias glog='git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit -n 20'
-  ```
+    ```bash
+    git config --global user.email "xxx@foxmail.com"
+    git config --global user.name "xxx"
+    
+    # ssh-key
+    brew install openssh
+    ssh-keygen -t ed25519 -C "your_email@example.com"
+    
+    touch ~/.ssh/config
+    
+    # add to ~/.ssh/config
+    Host github.com
+      AddKeysToAgent yes
+      IdentityFile ~/.ssh/id_ed25519
+    
+    ssh-add ~/.ssh/id_ed25519
+    
+    pbcopy < ~/.ssh/id_ed25519.pub
+    # then add to your github settings->ssh key
+    
+    # set proxy
+    git config --global http.proxy 127.0.0.1:7890
+    git config --global https.proxy 127.0.0.1:7890
+    
+    #unset
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
+    
+    # pretty git log
+    # add to ~/.zshrc
+    alias glog='git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit -n 20'
+    ```
 
 - gitignore global
 
@@ -71,8 +68,6 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
   echo .DS_Store >> ~/.gitignore_global
   git config --global core.excludesfile ~/.gitignore_global
   ```
-
-
 
 ## Homebrew
 
@@ -89,12 +84,10 @@ export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
 source ~/.zshrc
 
 brew update
-# if unistall
-# then brew autoremove
-# brew cleanup
+# if unistall then
+brew autoremove
+brew cleanup
 ```
-
-
 
 ## Font
 
@@ -106,17 +99,15 @@ perfer nerd fonts [nerd fonts](https://www.nerdfonts.com/font-downloads)
 
 - [Recursive](https://www.recursive.design/) - prefer fonts, installed from [nerdfonts](https://www.nerdfonts.com/font-downloads)
 
-  ```bash
-  # https://github.com/ryanoasis/nerd-fonts#option-8-patch-your-own-font
-  # Usage
-  cd FontPatcher
-  # then
-  fontforge -script font-patcher PATH_TO_FONT
-  # e.g: fontforge -script font-patcher ~/Documents/Fonts/RecMonoCasual/RecMonoCasual-Italic-1.085.ttf --complete
-  # then u can find xxxNerdFont.ttf in current path
-  ```
-
-
+```bash
+# https://github.com/ryanoasis/nerd-fonts#option-8-patch-your-own-font
+# Usage
+cd FontPatcher
+# then
+fontforge -script font-patcher PATH_TO_FONT
+# e.g: fontforge -script font-patcher ~/Documents/Fonts/RecMonoCasual/RecMonoCasual-Italic-1.085.ttf --complete
+# then u can find xxxNerdFont.ttf in current path
+```
 
 ## starship
 
@@ -167,23 +158,17 @@ perfer nerd fonts [nerd fonts](https://www.nerdfonts.com/font-downloads)
     [ -f ~/.last_directory ] && cd $(cat ~/.last_directory)
     ```
 
-
-
 ## Iterm2
 
-config refer to  [iterm2 dotfiles](https://github.com/dev24hrs/dotfiles/tree/main/iterm2)
+config refer to [iterm2 dotfiles](https://github.com/dev24hrs/dotfiles/tree/main/iterm2)
 
 <img src="https://cdn.jsdelivr.net/gh/dev24hrs/blog-img/blog/202405061712703.png" alt="iterm2" />
-
-
 
 ## Tmux
 
 config refer to [tmux dotfiles](https://github.com/dev24hrs/dotfiles/blob/main/tmux/tmux.conf)
 
 <img src="https://cdn.jsdelivr.net/gh/dev24hrs/blog-img/blog/202405061729031.png" alt="tmux" />
-
-
 
 ## Neovim
 
@@ -194,8 +179,6 @@ config refer to [nvim dotfiles](https://github.com/dev24hrs/dotfiles/tree/main/n
 <img src="https://cdn.jsdelivr.net/gh/dev24hrs/blog-img/go/202404151335169.png" alt="telescope" />
 
 <img src="https://cdn.jsdelivr.net/gh/dev24hrs/blog-img/go/202404151337040.png" alt="outline" width="100%" />
-
-
 
 ## vimrc
 
@@ -253,8 +236,8 @@ set termencoding=utf-8
 filetype indent on
 
 " auto tag
-inoremap ( ()<ESC>i  
-inoremap [ []<ESC>i 
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
 inoremap { {}<ESC>i
 inoremap < <><ESC>i
 inoremap ' ''<ESC>i
@@ -270,8 +253,6 @@ nnoremap L $
 nnoremap $ <nop>
 nnoremap ^ <nop>
 ```
-
-
 
 ## Golang
 
@@ -304,8 +285,6 @@ go install mvdan.cc/gofumpt@latest
 - Go 语言设计与实现 https://draveness.me/golang/
 - Go 语言高级编程 https://chai2010.cn/advanced-go-programming-book/index.html
 
-
-
 ## Rust
 
 ### Setup
@@ -332,21 +311,15 @@ rustup update
 
 - Rust Cookbook 中文版 https://rustwiki.org/zh-CN/rust-cookbook/
 
-
-
 ### Awesome Rust
 
 - awesome rust https://github.com/rust-unofficial/awesome-rust
 
 - Rust 嵌入式 https://github.com/rust-embedded/awesome-embedded-rust
 
-
-
 ## VsCode
 
 config refer to [vscode dotfiles](https://github.com/dev24hrs/dotfiles/tree/main/vscode)
-
-
 
 ## CLI Tools
 
@@ -368,7 +341,7 @@ bat --generate-config-file
 alias cat='bat'
 ```
 
-### [delta](https://github.com/dandavison/delta) 
+### [delta](https://github.com/dandavison/delta)
 
 git diff
 
@@ -391,7 +364,7 @@ brew install git-delta
 # set -ga terminal-overrides ",xterm-256color:Tc"-
 ```
 
-### [fd](https://github.com/sharkdp/fd) 
+### [fd](https://github.com/sharkdp/fd)
 
 a simple, fast and user-friendly alternative to 'find'
 
@@ -415,7 +388,7 @@ export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 
-show_file_or_dir_preview="if [ -d {} ];then tree -C {} | head -200;else bat -n --color=always {}; fi"
+show_file_or_dir_preview="if [ -d {} ]; then tree -C {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 
 _fzf_compgen_path() {
@@ -456,7 +429,7 @@ source ~/.zsh/fzf-git.sh/fzf-git.sh
 brew install ripgrep
 ```
 
-### [bottom](https://github.com/ClementTsang/bottom) 
+### [bottom](https://github.com/ClementTsang/bottom)
 
 process/system monitor
 
@@ -466,9 +439,9 @@ brew install bottom
 btm
 ```
 
-### [lsd](https://github.com/lsd-rs/lsd) 
+### [lsd](https://github.com/lsd-rs/lsd)
 
- ls command
+ls command
 
 ```bash
 brew install lsd
@@ -479,7 +452,7 @@ alias la='ls -la'
 alias lt='ls --tree'
 ```
 
-### [cheat.sh](https://github.com/chubin/cheat.sh) 
+### [cheat.sh](https://github.com/chubin/cheat.sh)
 
 command line cheat sheet
 
@@ -500,15 +473,13 @@ cht.sh go chan
 cht.sh --shell [LANG]
 ```
 
-### [httpie](https://github.com/httpie/cli) 
+### [httpie](https://github.com/httpie/cli)
 
 command-line HTTP client
 
 ```bash
 # use  https://httpie.io/docs/cli/redirected-input
 ```
-
-
 
 ## Apps
 
@@ -552,17 +523,14 @@ command-line HTTP client
 
   ```bash
   {
-   "ignored_packages":
-   [
-    "Vintage",
-   ],
-   "color_scheme": "ayu-light.sublime-color-scheme",
-   "theme": "ayu-light.sublime-theme",
-   "always_prompt_for_file_reload": true,
-   "font_size": 16,
-   "remember_open_files": true,
-   "update_check": false,
-   "font_face": "RecMonoCasual Nerd Font",
+  "ignored_packages": ["Vintage"],
+  "color_scheme": "ayu-light.sublime-color-scheme",
+  "theme": "ayu-light.sublime-theme",
+  "always_prompt_for_file_reload": true,
+  "font_size": 16,
+  "remember_open_files": true,
+  "update_check": false,
+  "font_face": "RecMonoCasual Nerd Font"
   }
   ```
 
@@ -570,7 +538,7 @@ command-line HTTP client
 
   > if u forget your GitHub tokens, u cant find it in the blew file `data.json`
 
-  ```json
+  ```bash
   // the data.json saved all the uploaded imgs info
   // this is vscode settings
   "picgo.dataPath": "$home/Library/Application Support/picgo/data.json",
